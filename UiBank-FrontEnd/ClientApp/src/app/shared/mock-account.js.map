@@ -1,0 +1,1 @@
+{"version":3,"file":"mock-account.js","sourceRoot":"","sources":["mock-account.ts"],"names":[],"mappings":";;AAEa,QAAA,QAAQ,GAAc;IACjC;QACE,EAAE,EAAE,GAAG;QACP,cAAc,EAAE,CAAC;QACjB,aAAa,EAAE,YAAY;QAC3B,IAAI,EAAE,UAAU;QAChB,QAAQ,EAAE,UAAU;QACpB,YAAY,EAAE,YAAY;QAC1B,SAAS,EAAE,UAAU;QACrB,OAAO,EAAE,KAAK;KACf;CACF,CAAC"}
