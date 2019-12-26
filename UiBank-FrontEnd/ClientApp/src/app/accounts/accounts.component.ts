@@ -9,7 +9,7 @@ import { AccountsService } from './accounts.service';
 })
 export class AccountsComponent implements OnInit {
   // variables
-  currentAccounts[]: Account;
+  currentAccounts: Account[];
 
 
   constructor(private accountsService: AccountsService) {
@@ -17,7 +17,8 @@ export class AccountsComponent implements OnInit {
   }
 
   ngOnInit() {
-      this.currentAccounts = this.accountsService.getAccounts();
+    this.accountsService.getAccounts()
+      .subscribe(accounts => this.currentAccounts = accounts);
   }
 
 }

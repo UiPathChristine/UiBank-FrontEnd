@@ -1,27 +1,63 @@
+<div class="jumbotron jumbotron-fluid shadow-sm uibank-gradient">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card shadow-sm">
 
+          <div class="card-body">
 
-<div class="jumbotron jumbotron-fluid shadow-sm">
-  <div class="container text-center">
-    <img class="smaller" src="../assets/images/bank.png" />
+            <div class="sm-spacer"></div>
 
-    <div class="sm-spacer"></div>
+            <form class="form-box">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+              </div>
+              <!--<div class="form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+              </div>-->
 
-    <h1 class="display-4">Welcome to UiBank!</h1>
+              <div class="sm-spacer"></div>
 
-    <div class="sm-spacer"></div>
+              <button type="submit" class="btn btn-block btn-primary btn-xl">Sign In</button>
+              <a [routerLink]="['/accounts']">
+                <small id="emailHelp" class="form-text text-muted">Forgot Your Password?</small>
+              </a>
 
-    <p class="lead">Banking made easy.</p>
+              <a [routerLink]="['/accounts']">
+                <small id="emailHelp" class="form-text text-muted">Register For Account</small>
+              </a>
+            </form>
 
-    <div class="sm-spacer"></div>
+            <div class="sm-spacer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8 text-center vertical-center">
+        <h1 class="text-white">
+          <strong>
+            Get started with a UiBank checking or savings account today!
+          </strong>
+        </h1>
 
-    <button type="button" class="btn btn-outline-success btn-lg" [routerLink]="['/login']">LOGIN</button>
-    <button type="button" class="btn btn-outline-success margin-left btn-lg">REGISTER</button>
+        <h5 class="text-white">
+          *Open an account in the next 30 days and receive $50 on us!
+        </h5>
 
+        <div class="spacer"></div>
+
+        <button type="submit" class="btn btn-white btn-xl">Get Started</button>
+      </div>
+    </div>
   </div>
 </div>
 
-<div class="card">
-  <div class="card-body">
-    This is some text within a card body.
-  </div>
-</div>
+<section class="bg-white">
+  Hlelo
+</section>

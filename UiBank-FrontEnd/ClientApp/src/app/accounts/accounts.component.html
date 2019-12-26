@@ -1,36 +1,26 @@
-<div class="card shadow-sm">
+<div class="card shadow-sm uibank-gradient">
   <div class="card-header" style="float: left">
-    <
+    <div class="sm-spacer"></div>
 
-    <div class="smooshed">
+    <div class="text-white">
       <h3>Hello Christine!</h3>
       <p>Here is your account summary:</p>
     </div>
 
-    <div class="card">
-      <h5 class="card-header">Featured</h5>
-      <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
+    <div class="sm-spacer"></div>
 
-    <div class="card">
-      <h5 class="card-header">Featured</h5>
-      <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-
-    <div class="card">
-      <h5 class="card-header">Featured</h5>
-      <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+    <div *ngFor="let account of currentAccounts">
+      <div class="account-card card">
+        <h5 class="card-header">
+          Account Name: {{account.friendly_name}}
+        </h5>
+        <div class="card-body">
+          <h5>
+            {{account.type}}
+          </h5>
+          <h5 class="card-title">Balance: {{account.balance}}</h5>
+          <a href="#" style="float:right" class="btn btn-primary">View Details</a>
+        </div>
       </div>
     </div>
 

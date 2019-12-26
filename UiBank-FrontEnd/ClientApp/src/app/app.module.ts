@@ -16,6 +16,12 @@ import { RegisterComponent } from './register/register.component';
 import { FooterComponent } from './footer/footer.component';
 import { AccountsComponent } from './accounts/accounts.component';
 import { CardsComponent } from './cards/cards.component';
+import { AccountsService } from './accounts/accounts.service';
+import { CardApplicationComponent } from './card-application/card-application.component';
+import { SideNavComponent } from './side-nav/side-nav.component';
+import { CreateAccountComponent } from './create-account/create-account.component';
+import { AccountDetailsComponent } from './account-details/account-details.component';
+import { AccountTransfersComponent } from './account-transfers/account-transfers.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +35,12 @@ import { CardsComponent } from './cards/cards.component';
     RegisterComponent,
     FooterComponent,
     AccountsComponent,
-    CardsComponent
+    CardsComponent,
+    CardApplicationComponent,
+    SideNavComponent,
+    CreateAccountComponent,
+    AccountDetailsComponent,
+    AccountTransfersComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -47,7 +58,7 @@ import { CardsComponent } from './cards/cards.component';
     ]),
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [AccountsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
