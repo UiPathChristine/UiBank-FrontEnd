@@ -1,31 +1,156 @@
-<div class="card shadow-sm uibank-gradient">
-  <div class="card-header" style="float: left">
-    <div class="sm-spacer"></div>
+<div class="row">
+  <div class="col-8">
+    <div class="card shadow-sm uibank-gradient">
+      <div class="card-header" style="float: left">
+        <div class="sm-spacer"></div>
 
-    <div class="text-white">
-      <h3>Hello Christine!</h3>
-      <p>Here is your account summary:</p>
-    </div>
+        <div class="text-white">
+          <h3>Hello Christine!</h3>
+          <p>Here is your account summary:</p>
+        </div>
 
-    <div class="sm-spacer"></div>
+        <div class="sm-spacer"></div>
 
-    <div *ngFor="let account of currentAccounts">
-      <div class="account-card card">
-        <h5 class="card-header">
-          Account Name: {{account.friendly_name}}
-        </h5>
+
+      
+      <div class="row">
+        <div class="col-6">
+
+
+            <div *ngFor="let account of currentAccounts">
+              <!--<div class="account-card card text-center">
+        <a>
+          <h5 class="card-header">
+            Account Name: {{account.friendly_name}}
+          </h5>
+        </a>
+
         <div class="card-body">
-          <h5>
+          <h5 class="d-inline">
             {{account.type}}
           </h5>
-          <h5 class="card-title">Balance: {{account.balance}}</h5>
-          <a href="#" style="float:right" class="btn btn-primary">View Details</a>
+          <div class="d-inline-block" style="float:right">
+            <h5>{{account.balance | currency:'USD':'symbol':'4.2-2'}}</h5>
+            <p class="text-grey">Available Balance</p>
+          </div>
+
+        </div>
+      </div>-->
+
+              <div class="card text-center">
+                <div class="card-header">
+                  <div class="sm-spacer"></div>
+                  <img height="40px" src="../../../assets/images/account.png" />
+                  <div class="sm-spacer"></div>
+                  <h5>
+                    {{account.friendly_name}}
+                  </h5>
+                  <p>{{account.type}}</p>
+
+                  <div class="sm-spacer"></div>
+
+                </div>
+
+                <div class="card-body">
+
+
+                  <div class="sm-spacer"></div>
+
+                  <p>
+                    Account Balance: <br />
+                  </p>
+                  <h5>{{account.balance | currency:'USD':'symbol':'4.2-2'}}</h5>
+
+                  <div class="sm-spacer"></div>
+
+                  <button type="submit" [routerLink]="['/register-account']" class="btn btn-blue">View Details</button>
+
+
+                  <div class="sm-spacer"></div>
+
+
+                </div>
+
+              </div>
+            </div>
+
+
+          </div>
         </div>
       </div>
+    
+
     </div>
 
 
   </div>
-  
+  <div class="col-4">
+    <div class="card shadow-sm text-center">
+      <div class="card-header blue-bg" style="float: left">
+        <div class="sm-spacer"></div>
+
+        <div class="text-white text-center">
+          <h3>How Can We Help?</h3>
+        </div>
+
+      </div>
+
+      <div class="card-body grey-bg">
+        <div class="card">
+          <div class="card-header bg-white">
+            <h5>
+              Payment Center
+            </h5>
+          </div>
+          <div class="card-body">
+            <div class="btn-blue-outline">
+              Make A Payment
+            </div>
+
+            <div class="sm-spacer"></div>
+
+            <div class="btn-blue-outline">
+              Transfer Funds
+            </div>
+
+            <div class="sm-spacer"></div>
+
+            <div class="btn-blue-outline">
+              Set Up Autopay
+            </div>
+          </div>
+        </div>
+
+        <div class="sm-spacer"></div>
+
+        <div class="card">
+          <div class="card-header bg-white">
+            <h5>
+              Loan Center
+            </h5>
+          </div>
+          <div class="card-body">
+            <div class="btn-blue-outline">
+              Apply For A Loan
+            </div>
+
+            <div class="sm-spacer"></div>
+
+            <div class="btn-blue-outline">
+              Loan Status
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+
+  </div>
 </div>
 
+
+<div class="spacer"></div>

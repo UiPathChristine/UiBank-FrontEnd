@@ -1,4 +1,4 @@
-<div class="jumbotron jumbotron-fluid shadow-sm uibank-gradient">
+<div class="jumbotron jumbotron-fluid shadow-sm photo-background">
   <div class="container">
     <div class="row">
       <div class="col-lg-4">
@@ -7,7 +7,6 @@
           <div class="card-body">
 
             <div class="sm-spacer"></div>
-
             <form class="form-box">
               <div class="form-group">
                 <label for="exampleInputEmail1">Email address</label>
@@ -25,7 +24,7 @@
 
               <div class="sm-spacer"></div>
 
-              <button type="submit" class="btn btn-block btn-primary btn-xl">Sign In</button>
+              <button type="submit" class="btn btn-block btn-blue btn-xl">Sign In</button>
               <a [routerLink]="['/accounts']">
                 <small id="emailHelp" class="form-text text-muted">Forgot Your Password?</small>
               </a>
@@ -52,12 +51,101 @@
 
         <div class="spacer"></div>
 
-        <button type="submit" class="btn btn-white btn-xl">Get Started</button>
+        <button type="submit" [routerLink]="['/register-account']" class="btn btn-white btn-xl">Get Started</button>
       </div>
     </div>
   </div>
 </div>
 
-<section class="bg-white">
-  Hlelo
-</section>
+<div class="jumbotron jumbotron-fluid shadow-sm uibank-gradient">
+  <div class="container">
+    <div class="row">
+      <!-- CHECKING AND SAVINGS ACCOUNT BOX -->
+      <div class="col-lg-4 text-center">
+        <div class="card shadow-sm">
+
+          <div class="card-body">
+
+            <div class="sm-spacer"></div>
+            <img src="../../../assets/images/icons/money.png" />
+
+            <div class="sm-spacer">
+            </div>
+
+            <h4>Checking and Savings Accounts</h4>
+
+            <div class="sm-spacer"></div>
+
+            <p class="text-blue">
+              Open up an account with us today<br /> and take advantage of our special offer! <br /> Every new acount created with us in 2020 gets $100 credit!*
+            </p>
+
+            <div class="sm-spacer"></div>
+
+            <button type="submit" [routerLink]="['/register-account']" class="btn btn-blue">Learn More</button>
+
+
+            <div class="sm-spacer"></div>
+          </div>
+        </div>
+      </div>
+      <!-- CREDIT CARD BOX -->
+      <div class="col-lg-4 text-center vertical-center" >
+        <div class="card shadow-sm" height="100%">
+
+          <div class="card-body">
+
+            <div class="sm-spacer"></div>
+            <img src="../../../assets/images/icons/certification.png" />
+
+            <div class="sm-spacer">
+            </div>
+
+            <h4>Credit and Debit<br /> Cards</h4>
+
+            <div class="sm-spacer"></div>
+
+            <p class="text-blue">
+              Open up an account with us today<br /> and take advantage of our special offer! <br /> Every new acount created with us in 2020 gets $100 credit!*
+            </p>
+
+            <div class="sm-spacer"></div>
+
+            <button type="submit" [routerLink]="['/register-account']" class="btn btn-blue">Learn More</button>
+
+            <div class="sm-spacer"></div>
+          </div>
+        </div>
+      </div>
+      <!-- VIRTUAL COMPONENT GUIDE -->
+      <div class="col-lg-4 text-center vertical-center">
+        <div class="card shadow-sm">
+
+          <div class="card-body">
+
+            <div class="sm-spacer"></div>
+            <img src="../../../assets/images/icons/web-testing.png" />
+
+            <div class="sm-spacer">
+            </div>
+
+            <h4>Mobile Banking When You Need It</h4>
+
+            <div class="sm-spacer"></div>
+
+            <p class="text-blue">
+              Open up an account with us today<br /> and take advantage of our special offer! <br /> Every new acount created with us in 2020 gets $100 credit!*
+            </p>
+
+            <div class="sm-spacer"></div>
+
+            <button type="submit" [routerLink]="['/register-account']" class="btn btn-blue">Learn More</button>
+
+
+            <div class="sm-spacer"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

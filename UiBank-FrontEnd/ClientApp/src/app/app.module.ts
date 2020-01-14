@@ -55,6 +55,7 @@ import { AccountTransfersComponent } from './account-transfers/account-transfers
       { path: 'register', component: RegisterComponent },
       { path: 'accounts', component: AccountsComponent },
       { path: 'cards', component: CardsComponent },
+      { path: 'register-account', component: RegisterComponent },
     ]),
     BrowserAnimationsModule
   ],
