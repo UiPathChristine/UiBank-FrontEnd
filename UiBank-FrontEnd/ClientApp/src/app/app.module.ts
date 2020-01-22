@@ -22,6 +22,11 @@ import { SideNavComponent } from './side-nav/side-nav.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
 import { AccountDetailsComponent } from './account-details/account-details.component';
 import { AccountTransfersComponent } from './account-transfers/account-transfers.component';
+import { LoansComponent } from './loans/loan-home/loans.component';
+import { LoanApplicationComponent } from './loans/loan-application/loan-application.component';
+import { LoanResultComponent } from './loans/loan-result/loan-result.component';
+import { LoanLookupComponent } from './loans/loan-lookup/loan-lookup.component';
+import { LoanDetailsComponent } from './loans/loan-details/loan-details.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +45,12 @@ import { AccountTransfersComponent } from './account-transfers/account-transfers
     SideNavComponent,
     CreateAccountComponent,
     AccountDetailsComponent,
-    AccountTransfersComponent
+    AccountTransfersComponent,
+    LoansComponent,
+    LoanApplicationComponent,
+    LoanResultComponent,
+    LoanLookupComponent,
+    LoanDetailsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -56,6 +66,11 @@ import { AccountTransfersComponent } from './account-transfers/account-transfers
       { path: 'accounts', component: AccountsComponent },
       { path: 'cards', component: CardsComponent },
       { path: 'register-account', component: RegisterComponent },
+      { path: 'loans', component: LoansComponent },
+      { path: 'loans/apply', component: LoanApplicationComponent },
+      { path: 'loans/lookup', component: LoanLookupComponent },
+      { path: 'loans/result/:loanID/:rate/:success', component: LoanResultComponent },
+      { path: 'loans/detailView/:quoteID', component: LoanDetailsComponent }
     ]),
     BrowserAnimationsModule
   ],

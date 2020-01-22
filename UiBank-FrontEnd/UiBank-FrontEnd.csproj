@@ -26,6 +26,7 @@
 
   <ItemGroup>
     <None Remove="ClientApp\src\app\shared\account.ts" />
+    <None Remove="ClientApp\src\app\shared\loan.ts" />
     <None Remove="ClientApp\src\app\shared\mock-account.ts" />
   </ItemGroup>
 
@@ -35,6 +36,7 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\shared\account.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\shared\loan.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\shared\mock-account.ts" />
   </ItemGroup>
 

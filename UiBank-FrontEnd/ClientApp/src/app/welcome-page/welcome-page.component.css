@@ -28,3 +28,7 @@
 .photo-background {
   background-image: url("../../assets/images/HomePage.png");
 }
+
+.h2 {
+  font-size: 3rem !important;
+}

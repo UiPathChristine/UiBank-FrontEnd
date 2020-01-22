@@ -1,0 +1,67 @@
+<div class="card shadow-sm">
+  <div class="card-header" style="float: left">
+    <a style="cursor: pointer" (click)="backButton()">
+      <strong>
+        <
+      </strong>
+    </a>
+  </div>
+  <div class="card-body form-box-smooshed">
+    <div class="spacer"></div>
+
+    <h1 class="text-center">Loan Application</h1>
+    <p class="text-center">Hi! Enter your personal details below to get started!</p>
+
+    <div class="sm-spacer"></div>
+
+    <form class="form-box" #loanForm="ngForm" (ngSubmit)="submitApplication(loanForm)">
+      <div class="form-group">
+        <label for="loanAmount">Loan Amount Requested</label>
+        <input type="number"
+               class="form-control"
+               id="amount"
+               ngModel
+               name="amount"
+               aria-describedby="amount"
+               placeholder="Enter loan amount you are looking for, no need to put commas either">
+      </div>
+      <div class="form-group">
+        <label for="number">Loan Term</label>
+        <select class="form-control" id="power"
+                required
+                type="number"
+                ngModel name="term">
+          <option type="number" *ngFor="let specificTerm of termDates" [value]="specificTerm">{{specificTerm}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="income">Current Yearly Income (Before Taxes)</label>
+        <input type="number"
+               class="form-control"
+               ngModel
+               name="income"
+               id="income"
+               placeholder="How much do you make before taxes a year?">
+      </div>
+      <div class="form-group">
+        <label for="age">Age</label>
+        <input type="number"
+               class="form-control"
+               ngModel
+               name="age"
+               id="age"
+               placeholder="How many years old are you?">
+      </div>
+
+      <div class="sm-spacer"></div>
+
+      <button type="submit" class="btn btn-blue">Submit Loan Application</button>
+    </form>
+
+    <div class="spacer"></div>
+  </div>
+</div>
+
+
+
+<div class="spacer"></div>

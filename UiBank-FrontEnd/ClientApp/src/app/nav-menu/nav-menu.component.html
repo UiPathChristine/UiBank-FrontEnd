@@ -3,7 +3,7 @@
     class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"
   >
     <div class="container">
-      <a class="navbar-brand" [routerLink]="['/']">
+      <a class="navbar-brand" style="margin-top: auto; margin-bottom: auto" [routerLink]="['/']">
         <img height="30px" style="padding-right: 10px" src="../../assets/images/icons/money.png"/>
         <strong>UiBank</strong>
       </a>
@@ -28,8 +28,16 @@
               [routerLinkActiveOptions]="{ exact: true }">
             <a class="nav-link text-dark" [routerLink]="['/accounts']">Accounts</a>
           </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/cards']">Products</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle"  style="color: black" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Products
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#" [routerLink]="['/loans']">Loans</a>
+              <a class="dropdown-item" href="#">Credit Cards</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Mobile Banking</a>
+            </div>
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
             <a class="nav-link text-dark" [routerLink]="['/help']">Help</a>

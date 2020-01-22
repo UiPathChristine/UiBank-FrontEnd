@@ -1,0 +1,46 @@
+<div class="card shadow-sm">
+  <div class="card-header" style="float: left">
+    <a style="cursor: pointer" (click)="backButton()">
+      <strong>
+        <
+      </strong>
+    </a>
+  </div>
+
+<div *ngIf="myLoan != undefined && validID === ''; else notApproved" class="text-center">
+
+    <div class="card-body form-box-smooshed">
+
+      <div class="spacer"></div>
+      <div class="sm-spacer"></div>
+
+      <h1 class="text-center">Your Loan Details: </h1>
+
+      <div class="spacer"></div>
+
+      <h5>Loan ID: {{quoteID}} </h5>
+      <h5>Term: {{myLoan.term}} </h5>
+      <h5>Loan Amount: ${{myLoan.amount}} </h5>
+      <h5>Loan Rate: {{myLoan.rate}}% </h5>
+      <h5>Applicant Age: {{myLoan.age}} </h5>
+      <h5>Applicant Yearly Income: {{myLoan.income}} </h5>
+
+      <div class="spacer"></div>
+
+    </div>
+ 
+
+</div>
+  <ng-template #notApproved class="text-center">
+    <div style="padding-bottom: 300px"></div>
+   
+  </ng-template>
+
+
+  <div class="spacer"></div>
+</div>
+
+
+
+
+<div class="spacer"></div>

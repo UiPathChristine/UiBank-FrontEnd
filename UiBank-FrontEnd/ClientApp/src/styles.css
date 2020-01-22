@@ -193,8 +193,22 @@ body { margin: 0; font-family: Poppins, sans-serif; }
   color: #0067DF;
 }
 
+.text-orange {
+  color: #FA4616;
+}
+
+
 
 .vertical-center {
     margin-top: auto;
     margin-bottom: auto;
+}
+
+
+.h2 {
+  font-size: 300px !important;
+}
+
+.jumbotron {
+  border-radius: 10px !important;
 }
