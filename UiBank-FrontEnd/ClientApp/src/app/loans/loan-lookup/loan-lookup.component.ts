@@ -31,7 +31,7 @@ export class LoanLookupComponent implements OnInit {
       this.myLoan = reply;
       this.route.navigate(['loans/detailView', this.quoteID.quoteID]);
 
-    }, err => { console.log(err); this.route.navigate(['register']); });
+    }, err => { console.log(err); this.route.navigate(['loans/detailView', 'id not found']); });
 
     
 
