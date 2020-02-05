@@ -24,7 +24,8 @@ export class LoanService {
 
     return this.http.post(this.loanURL + this.quotesSuffix, loan).pipe(map((response: Response) => {
       return response;
-    }))
+    })
+    )
 
   }
 

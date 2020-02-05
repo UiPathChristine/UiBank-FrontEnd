@@ -10,6 +10,7 @@ import { AccountsService } from './accounts.service';
 export class AccountsComponent implements OnInit {
   // variables
   currentAccounts: Account[];
+  accountID: string = "123123";
 
 
   constructor(private accountsService: AccountsService) {
@@ -17,6 +18,8 @@ export class AccountsComponent implements OnInit {
   }
 
   ngOnInit() {
+
+
     this.accountsService.getAccounts()
       .subscribe(accounts => this.currentAccounts = accounts);
   }

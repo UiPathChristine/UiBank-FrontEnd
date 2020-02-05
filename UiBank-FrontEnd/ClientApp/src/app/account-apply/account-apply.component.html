@@ -1,0 +1,61 @@
+<!--<div class="card shadow-sm">
+  <div class="card-header uibank-gradient text-white" style="float: left">
+    <div>
+      <a style="cursor: pointer" (click)="backButton()">
+        <strong>
+          <
+        </strong>
+      </a>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="spacer"></div>
+
+    <h1 class="text-center">Register</h1>
+    <p class="text-center">We'll need some information to get you started with an account! First let's get some basic information.</p>
+
+    <div class="sm-spacer"></div>
+
+    <form class="form-box form-box-smooshed" #accountRegister="ngForm" (ngSubmit)="registerNewAccount(accountRegister)">
+      <div class="form-group">
+        <label for="friendly_name">Account Nickname</label>
+        <input type="text"
+               class="form-control"
+               id="friendly_name"
+               aria-describedby="friendly_name"
+               [(ngModel)]="friendly_name"
+               name="friendly_name"
+               placeholder="What would you like to call this account?">
+      </div>
+      <div class="form-group">
+        <label for="type">Type of Account</label>
+        <select class="form-control" id="type"
+                required
+                type="text"
+                ngModel name="type">
+          <option type="text" *ngFor="let type of accountTypes" [value]="type">{{type}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="balance">Would you like to add a starting balance?</label>
+        <input type="text"
+               class="form-control"
+               id="balance"
+               aria-describedby="balance"
+               [(ngModel)]="balance"
+               name="balance"
+               placeholder="Specify how much you would like to initally deposit">
+      </div>
+  
+
+
+      <div class="sm-spacer"></div>
+
+      <button type="submit" class="btn btn-primary">Open New Account</button>
+    </form>
+
+    <div class="spacer"></div>
+  </div>
+</div>
+
+<div class="spacer"></div>-->

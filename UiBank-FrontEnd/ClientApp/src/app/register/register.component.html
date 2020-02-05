@@ -16,35 +16,142 @@
 
     <div class="sm-spacer"></div>
 
-    <form class="form-box form-box-smooshed">
+    <form class="form-box form-box-smooshed" #registerForm="ngForm" (ngSubmit)="registerUser(registerForm)">
       <div class="form-group">
-        <label for="exampleInputEmail1">First Name</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter first name">
+        <label for="firstName">First Name</label>
+        <input type="text"
+               class="form-control"
+               id="firstName"
+               aria-describedby="firstName"
+               [(ngModel)]="this.newUser.firstName"
+               name="firstName"
+               placeholder="Enter first name">
       </div>
       <div class="form-group">
-        <label for="exampleInputEmail1">Last Name</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter last name">
+        <label for="title">Title</label>
+        <select class="form-control" id="title"
+                required
+                type="text"
+                ngModel name="title">
+          <option type="text" *ngFor="let title of titles" [value]="title">{{title}}</option>
+        </select>
       </div>
       <div class="form-group">
-        <label for="exampleInputEmail1">Date of Birth</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter date of birth (MM/DD/YY)">
+        <label for="middleName">Middle Name Or Initial</label>
+        <input type="text"
+               class="form-control"
+               id="middleName"
+               aria-describedby="this.newUser.middleName"
+               [(ngModel)]="this.newUser.middleName"
+               name="middleName"
+               placeholder="Enter first name">
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input type="text"
+               class="form-control"
+               id="lastName"
+               aria-describedby="lastName"
+               [(ngModel)]="this.newUser.lastName"
+               name="lastName"
+               placeholder="Enter last name">
+      </div>
+      <div class="form-group">
+        <label for="number">Gender</label>
+        <select class="form-control" id="gender"
+                required
+                type="text"
+                ngModel name="gender">
+          <option type="text" *ngFor="let gender of genderTypes" [value]="gender">{{gender}}</option>
+        </select>
+      </div>
+      <!--<div class="form-group">
+    <label for="dateOfBirth">Date of Birth</label>
+    <input type="text"
+           class="form-control"
+           id="dateOfBirth"
+           aria-describedby="dateOfBirth"
+           [(ngModel)]="dateOfBirth"
+           name="dateOfBirth"
+           placeholder="Enter date of birth (MM/DD/YY)">
+  </div>-->
+      <div class="form-group">
+        <label for="number">Employment Status</label>
+        <select class="form-control" id="employmentStatus"
+                required
+                type="text"
+                ngModel name="employmentStatus">
+          <option type="number" *ngFor="let status of employmentStatuses" [value]="status">{{status}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="age">Age</label>
+        <input type="text"
+               class="form-control"
+               id="age"
+               [(ngModel)]="this.newUser.age"
+               name="age"
+               aria-describedby="age"
+               placeholder="Enter age">
+      </div>
+      <div class="form-group">
+        <label for="number">Marital Status</label>
+        <select class="form-control" id="gender"
+                required
+                type="text"
+                ngModel name="maritalStatus">
+          <option type="text" *ngFor="let marital of maritalStatuses" [value]="marital">{{marital}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="numberDependents">Number of Dependents</label>
+        <input type="number"
+               class="form-control"
+               id="numberOfDependents"
+               aria-describedby="numberOfDependents"
+               [(ngModel)]="this.newUser.numberOfDependents"
+               name="numberOfDependents"
+               placeholder="How many dependents do you claim?">
+      </div>
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text"
+               class="form-control"
+               id="username"
+               aria-describedby="username"
+               [(ngModel)]="this.newUser.username"
+               name="username"
+               placeholder="Please type in your new username">
       </div>
       <div class="form-group">
         <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        <input type="email"
+               class="form-control"
+               id="email"
+               aria-describedby="email"
+               [(ngModel)]="this.newUser.email"
+               name="email"
+               placeholder="Enter email">
+        <small id="email" class="form-text text-muted">We'll never share your email with anyone else.</small>
       </div>
       <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        <label for="password">Password</label>
+        <input type="password"
+               class="form-control"
+               id="password"
+               [(ngModel)]="this.newUser.password"
+               name="password"
+               placeholder="Password">
       </div>
 
 
       <div class="sm-spacer"></div>
 
-      <button type="submit" class="btn btn-primary" >Next</button>
+      <button type="submit" class="btn btn-primary">Register</button>
     </form>
 
     <div class="spacer"></div>
   </div>
 </div>
+
+<div class="spacer"></div>

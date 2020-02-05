@@ -5,80 +5,92 @@
         <div class="sm-spacer"></div>
 
         <div class="text-white">
-          <h3>Hello Christine!</h3>
+          <h3>Hello Rick!</h3>
           <p>Here is your account summary:</p>
         </div>
 
-        <div class="sm-spacer"></div>
-
+      
+      </div>
+      <div class="card-body">
 
       
       <div class="row">
         <div class="col-6">
 
 
-            <div *ngFor="let account of currentAccounts">
-              <!--<div class="account-card card text-center">
-        <a>
-          <h5 class="card-header">
-            Account Name: {{account.friendly_name}}
-          </h5>
-        </a>
-
-        <div class="card-body">
-          <h5 class="d-inline">
-            {{account.type}}
-          </h5>
-          <div class="d-inline-block" style="float:right">
-            <h5>{{account.balance | currency:'USD':'symbol':'4.2-2'}}</h5>
-            <p class="text-grey">Available Balance</p>
-          </div>
-
-        </div>
-      </div>-->
-
-              <div class="card text-center">
-                <div class="card-header">
-                  <div class="sm-spacer"></div>
-                  <img height="40px" src="../../../assets/images/account.png" />
-                  <div class="sm-spacer"></div>
-                  <h5>
-                    {{account.friendly_name}}
-                  </h5>
-                  <p>{{account.type}}</p>
-
-                  <div class="sm-spacer"></div>
-
-                </div>
-
-                <div class="card-body">
+          <div *ngFor="let account of currentAccounts">
 
 
-                  <div class="sm-spacer"></div>
+            <div class="card text-center">
+              <div class="card-header">
+                <div class="sm-spacer"></div>
+                <img height="40px" src="../../../assets/images/account.png" />
 
-                  <p>
-                    Account Balance: <br />
-                  </p>
-                  <h5>{{account.balance | currency:'USD':'symbol':'4.2-2'}}</h5>
+                <h5>
+                  {{account.friendly_name}}
+                </h5>
+                <p>{{account.type}}</p>
 
-                  <div class="sm-spacer"></div>
-
-                  <button type="submit" [routerLink]="['/register-account']" class="btn btn-blue">View Details</button>
-
-
-                  <div class="sm-spacer"></div>
-
-
-                </div>
 
               </div>
-            </div>
 
+              <div class="card-body">
+
+                <div class="sm-spacer"></div>
+
+                <p>
+                  Account Balance:
+                </p>
+                <h5>{{account.balance | currency:'USD':'symbol':'4.2-2'}}</h5>
+
+                <div class="sm-spacer"></div>
+
+                <button type="submit" [routerLink]="['/account-details', this.accountID]" class="btn btn-blue">View Details</button>
+
+
+                <div class="sm-spacer"></div>
+
+
+              </div>
+
+            </div>
+          </div>
+
+          
+
+        </div>
+        <!--This is the card that leads to a new account-->
+        <div class="col-6">
+          <div class="card new-account-card text-center">
+
+            <div class="card-body new-account-body">
+
+              <div class="sm-spacer"></div>
+
+              <a  [routerLink]="['/register-account']" >
+                <p>
+                  Add a new account
+                </p>
+
+                <div class="sm-spacer"></div>
+
+                <img height="80px" src="../../../assets/images/icons/plus.png" />
+
+              </a>
+
+
+
+              <div class="sm-spacer"></div>
+
+
+            </div>
 
           </div>
         </div>
+        </div>
       </div>
-    
+
+      <div class="sm-spacer"></div>
 
     </div>
 

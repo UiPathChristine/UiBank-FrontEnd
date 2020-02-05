@@ -5,6 +5,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { MaterialDesignModule } from '../material-design/material-design.module';
 import { AppComponent } from './app.component';
+import { JwtModule } from "@auth0/angular-jwt";
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
@@ -27,6 +28,18 @@ import { LoanApplicationComponent } from './loans/loan-application/loan-applicat
 import { LoanResultComponent } from './loans/loan-result/loan-result.component';
 import { LoanLookupComponent } from './loans/loan-lookup/loan-lookup.component';
 import { LoanDetailsComponent } from './loans/loan-details/loan-details.component';
+import { RegisterService } from './register/register.service';
+import { RegisterSuccessComponent } from './register-success/register-success.component';
+import { HelpComponent } from './help/help.component';
+import { AccountApplyComponent } from './account-apply/account-apply.component';
+import { TransferMoneyComponent } from './transfer-money/transfer-money.component';
+import { AuthGuard } from './guards/auth-guard.service';
+import { ProfileComponent } from './profile/profile.component';
+import { AuthenticationService } from './auth/authentication.service';
+
+export function tokenGetter() {
+  return localStorage.getItem("jwt");
+}
 
 @NgModule({
   declarations: [
@@ -50,7 +63,12 @@ import { LoanDetailsComponent } from './loans/loan-details/loan-details.componen
     LoanApplicationComponent,
     LoanResultComponent,
     LoanLookupComponent,
-    LoanDetailsComponent
+    LoanDetailsComponent,
+    RegisterSuccessComponent,
+    HelpComponent,
+    AccountApplyComponent,
+    TransferMoneyComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -63,18 +81,29 @@ import { LoanDetailsComponent } from './loans/loan-details/loan-details.componen
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
-      { path: 'accounts', component: AccountsComponent },
+      { path: 'help', component: HelpComponent },
+      { path: 'accounts', component: AccountsComponent, canActivate: [AuthGuard] },
+      { path: 'account-apply', component: AccountApplyComponent },
+      { path: 'account-details/:accountID', component: AccountDetailsComponent },
       { path: 'cards', component: CardsComponent },
       { path: 'register-account', component: RegisterComponent },
+      { path: 'register-account/success/:username', component: RegisterSuccessComponent },
       { path: 'loans', component: LoansComponent },
       { path: 'loans/apply', component: LoanApplicationComponent },
       { path: 'loans/lookup', component: LoanLookupComponent },
       { path: 'loans/result/:loanID/:rate/:success', component: LoanResultComponent },
       { path: 'loans/detailView/:quoteID', component: LoanDetailsComponent }
     ]),
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        whitelistedDomains: ["localhost:44368"],
+        blacklistedRoutes: []
+      }
+    }),
     BrowserAnimationsModule
   ],
-  providers: [AccountsService],
+  providers: [AuthenticationService, RegisterService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

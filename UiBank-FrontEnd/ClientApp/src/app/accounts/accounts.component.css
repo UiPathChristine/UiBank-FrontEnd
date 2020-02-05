@@ -6,3 +6,18 @@
 .account-card {
   /*border: 1px solid #D3D3D3 !important;*/
 }
+
+.new-account-card {
+  border: 3px solid white !important;
+  background-color: transparent !important;
+  color: white;
+}
+
+.new-account-body {
+  background-color: transparent !important;
+
+}
+
+a {
+  color: white;
+}

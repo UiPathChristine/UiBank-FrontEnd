@@ -1,0 +1,35 @@
+/*/*table {
+  background-color: white;
+  border-radius: 10px;
+  border-width: 2px;
+  border-color: orange;
+  padding: 20px;
+}*/
+
+thead, tr, th {
+  border-radius: 3px;
+}
+
+body {
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+
+}
+
+.row-border {
+  border-color: white;
+  border-width: 2px;
+  border-bottom-color: white;
+  border-bottom-width: 2px;
+}
+
+
+a {
+  color: white;
+}
+
+
+.card-header {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}

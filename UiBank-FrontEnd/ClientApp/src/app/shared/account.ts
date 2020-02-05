@@ -8,3 +8,11 @@ export class Account {
   public cards_url: string;
   public balance: number;
 }
+
+//"accountNumber": 0,
+//  "sortCode": "string",
+//    "friendlyName": "string",
+//      "type": "string",
+//        "balance": 0,
+//          "id": "string",
+//            "userId": "string"

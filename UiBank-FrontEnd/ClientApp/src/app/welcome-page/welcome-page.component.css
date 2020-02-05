@@ -26,7 +26,8 @@
 }
 
 .photo-background {
-  background-image: url("../../assets/images/HomePage.png");
+  background-image: url("../../assets/images/HomePage4.png");
+  width: 100%;
 }
 
 .h2 {

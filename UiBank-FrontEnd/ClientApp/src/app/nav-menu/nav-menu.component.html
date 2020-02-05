@@ -29,7 +29,7 @@
             <a class="nav-link text-dark" [routerLink]="['/accounts']">Accounts</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle"  style="color: black" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle text-dark"  style="color: black" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Products
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -44,6 +44,9 @@
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
             <a class="nav-link text-dark" [routerLink]="['/userprofile']">Profile</a>
+          </li>
+          <li class="nav-item" *ngIf="this.authService.getLoggedInStatus()">
+            <a class="nav-link text-dark" (click)="logoutUser()" [routerLink]="['/']">Logout</a>
           </li>
         </ul>
       </div>

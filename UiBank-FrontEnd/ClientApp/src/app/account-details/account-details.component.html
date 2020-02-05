@@ -1,1 +1,68 @@
-<p>account-details works!</p>
+<div class="row">
+  <div class="col-12">
+    <div class="card shadow-sm ">
+      <div class="card-header uibank-gradient" style="float: left">
+        <div class="sm-spacer"></div>
+
+        <div class="text-white">
+          <h3>Hello Rick!</h3>
+          <p>Transaction History:</p>
+        </div>
+
+        <hr style="background-color: white"/>
+
+        <div class="row row-border">
+          <div class="col-4 text-white text-center">
+            <a [routerLink]="">
+              Transfer Money
+            </a>
+          </div>
+          <div class="col-4 text-white text-center">
+            <a [routerLink]="">
+              View Statements
+            </a>
+          </div>
+          <div class="col-4 text-white text-center">
+            <a [routerLink]="">
+              Manage Account
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <table class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Transaction Amount</th>
+              <th scope="col">Description</th>
+              <th scope="col">Other</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let transaction of transactions">
+              <td>
+                {{transaction.amount}}
+              </td>
+              <td>
+                {{transaction.description}}
+              </td>
+              <td>
+                {{transaction.accountId}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+      <div class="sm-spacer"></div>
+
+    </div>
+
+
+  </div>
+ 
+</div>
+
+
+<div class="spacer"></div>
