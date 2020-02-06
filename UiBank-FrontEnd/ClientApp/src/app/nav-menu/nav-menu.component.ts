@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../auth/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-menu',
@@ -10,7 +11,7 @@ export class NavMenuComponent implements OnInit {
   isExpanded = false;
   loggedIn: boolean = false;
 
-  constructor(private authService: AuthenticationService) { }
+  constructor(private router: Router, private authService: AuthenticationService) { }
 
   ngOnInit() {
     this.loggedIn = this.authService.getLoggedInStatus();
@@ -20,6 +21,7 @@ export class NavMenuComponent implements OnInit {
     console.log("we've been logged out")
     localStorage.removeItem("sessionToken");
     this.authService.setLoggedInStatus(false);
+    this.router.navigate(["/"]);
   }
 
   collapse() {

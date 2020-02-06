@@ -25,7 +25,8 @@
         <ul class="navbar-nav flex-grow">
           <li class="nav-item"
               [routerLinkActive]="['link-active']"
-              [routerLinkActiveOptions]="{ exact: true }">
+              [routerLinkActiveOptions]="{ exact: true }"
+              *ngIf="this.authService.getLoggedInStatus()">
             <a class="nav-link text-dark" [routerLink]="['/accounts']">Accounts</a>
           </li>
           <li class="nav-item dropdown">
@@ -42,7 +43,7 @@
           <li class="nav-item" [routerLinkActive]="['link-active']">
             <a class="nav-link text-dark" [routerLink]="['/help']">Help</a>
           </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
+          <li class="nav-item" *ngIf="this.authService.getLoggedInStatus()" [routerLinkActive]="['link-active']">
             <a class="nav-link text-dark" [routerLink]="['/userprofile']">Profile</a>
           </li>
           <li class="nav-item" *ngIf="this.authService.getLoggedInStatus()">

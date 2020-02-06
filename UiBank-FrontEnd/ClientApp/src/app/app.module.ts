@@ -86,6 +86,7 @@ export function tokenGetter() {
       { path: 'account-apply', component: AccountApplyComponent },
       { path: 'account-details/:accountID', component: AccountDetailsComponent },
       { path: 'cards', component: CardsComponent },
+      { path: 'userprofile', component: ProfileComponent, canActivate: [AuthGuard] },
       { path: 'register-account', component: RegisterComponent },
       { path: 'register-account/success/:username', component: RegisterSuccessComponent },
       { path: 'loans', component: LoansComponent },

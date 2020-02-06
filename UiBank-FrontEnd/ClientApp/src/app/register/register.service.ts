@@ -12,7 +12,7 @@ import { User } from '../shared/user';
 })
 export class RegisterService {
   currentAccounts: Observable<Account[]>;
-  loanURL: string = "https://www.pokerrat.co.uk:3000/api/users/";
+  loanURL: string = "https://uibank-api.azurewebsites.net/api/users/";
   quotesSuffix: string = "users/";
   getQuoteSuffix: string = "quotes/";
   response: string;

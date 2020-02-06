@@ -24,6 +24,7 @@ export class WelcomePageComponent implements OnInit {
   constructor(private authService: AuthenticationService, private jwtHelper: JwtHelperService, private http: HttpClient, private loginService: LoginService, private route: Router) { }
 
   ngOnInit() {
+   
   }
 
   //isUserAuthenticated() {
@@ -41,14 +42,14 @@ export class WelcomePageComponent implements OnInit {
     console.log("Logging in user" + form.value);
     this.userLoginInfo = form.value;
 
-    this.loginService.loginWithToken(this.userLoginInfo)
-
+    this.loginService.login(this.userLoginInfo)
       .subscribe(
-      res => {
-        console.log('HTTP response', res);
+        res => {
+          console.log('HTTP response', res);
           console.log('successful login');
           console.log('returned token', res.id);
           localStorage.setItem("sessionToken", res.id);
+          localStorage.setItem("userId", res.userId);
           this.authService.setLoggedInStatus(true);
         this.route.navigate(['accounts']);
       },

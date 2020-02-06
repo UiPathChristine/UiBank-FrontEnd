@@ -18,6 +18,7 @@ export class LoginService {
   getQuoteSuffix: string = "quotes/";
   response: string;
   invalidLogin: boolean = false;
+  loggingInUser: User;
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -35,21 +36,24 @@ export class LoginService {
   login(userData: any): any {
     console.log("in login service");
     let credentials = JSON.stringify(userData.value);
-    console.log(userData);
-    this.http.post("http://localhost:44368/api/auth/login", credentials, {
+    this.loggingInUser = userData;
+    console.log(this.loggingInUser);
+    return this.http.post("https://uibank-api.azurewebsites.net/api/users/login", userData, {
       headers: new HttpHeaders({
         "Content-Type": "application/json"
       })
-    }).subscribe(response => {
-      let token = (<any>response).token;
-      console.log("mytoken" + token);
-      localStorage.setItem("jwt", token);
-      this.invalidLogin = false;
-      this.router.navigate(["/"]);
-    }, err => {
-        console.log("error message");
-      this.invalidLogin = true;
-    });
+    })
+
+    //  .subscribe(response => {
+    //  let token = (<any>response).token;
+    //  console.log("mytoken" + token);
+    //  localStorage.setItem("jwt", token);
+    //  this.invalidLogin = false;
+    //  this.router.navigate(["/"]);
+    //}, err => {
+    //    console.log("error message");
+    //  this.invalidLogin = true;
+    //});
   }
 
   loginWithToken(user: any): any {

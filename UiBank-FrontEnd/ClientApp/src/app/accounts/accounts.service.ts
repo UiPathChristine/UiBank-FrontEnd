@@ -43,17 +43,14 @@ export class AccountsService {
     //  .subscribe(response => this.currentAccounts = response)
     //  .catch(this.handleError);
 
-    //return this.http.get(this.accountsURLPrefix + "1" + this.accountURLSuffix)
-    //  .subscribe((accounts: Account[]) => {
-    //    this.currentAccounts = accounts;
-    //  })
+    return this.http.get(this.accountsURLPrefix + "1" + this.accountURLSuffix);
 
-    let token = localStorage.getItem("jwt");
-    return this.http.get<Account[]>(this.accountsURLPrefix + "1" + this.accountURLSuffix, {
-      headers: new HttpHeaders({
-        "Content-Type": "application/json"
-      })
-    });
+    //let token = localStorage.getItem("jwt");
+    //return this.http.get<Account[]>(this.accountsURLPrefix + "1" + this.accountURLSuffix, {
+    //  headers: new HttpHeaders({
+    //    "Content-Type": "application/json"
+    //  })
+    //});
 
 
     //return this.http.get(this.accountsURLPrefix + "1" + this.accountURLSuffix)

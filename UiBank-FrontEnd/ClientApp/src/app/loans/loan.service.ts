@@ -36,7 +36,7 @@ export class LoanService {
     console.log(this.loanURL + this.getQuoteSuffix + loanID);
 
 
-    return this.http.get(this.loanURL + this.getQuoteSuffix + loanID)
+    return this.http.get(this.loanURL + this.getQuoteSuffix + loanID);
   }
 
   handleError(error: HttpErrorResponse) {

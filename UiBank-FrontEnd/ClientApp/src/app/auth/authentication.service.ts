@@ -8,16 +8,16 @@ export class AuthenticationService {
 
 
   constructor() {
-    let token: string = localStorage.getItem("sessionToken");
-    console.log(token);
-    if (token == "" || token == undefined) {
-      console.log("Invalid user for this page");
-      this.userLoggedIn = true;
-    }
-    else {
-      console.log("Valid user for this page");
-      this.userLoggedIn = false;
-    }
+    //let token: string = localStorage.getItem("sessionToken");
+    //console.log(token);
+    //if (token == "" || token == undefined) {
+    //  console.log("Invalid user for this page");
+    //  this.userLoggedIn = true;
+    //}
+    //else {
+    //  console.log("Valid user for this page");
+    //  this.userLoggedIn = false;
+    //}
   }
 
   // for jwt token
