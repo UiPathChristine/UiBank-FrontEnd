@@ -4,8 +4,36 @@
 }
 
 .account-card {
-  /*border: 1px solid #D3D3D3 !important;*/
+  border-radius: 10px;
+  background-color: white;
+  border: 2px solid #0067DF !important;
+  padding:20px;
 }
+
+.card-header {
+
+}
+
+.balance-details {
+  display: inline-block;
+  text-align: right;
+  width: 100%;
+}
+
+.account-details {
+  display: inline-block;
+  text-align: left;
+  width: 100%;
+}
+
+.help-card {
+  border-radius: 10px;
+  background-color: white;
+  border: 2px solid #0067DF !important;
+}
+
+
+
 
 .new-account-card {
   border: 3px solid white !important;
@@ -18,12 +46,36 @@
 
 }
 
-a {
-  color: white;
+
+.bottom-buffer {
+  margin-bottom: 20px;
 }
 
 
 .card-header {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+
+  padding: 20px;
+}
+
+.card {
+  padding: 0;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+.card-header {
+  border-bottom-color: #0067DF !important;
+}
+
+
+.card-body {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+
+p {
+  margin: 0;
 }

@@ -21,7 +21,7 @@ export class WelcomePageComponent implements OnInit {
   public response: any;
 
 
-  constructor(private authService: AuthenticationService, private jwtHelper: JwtHelperService, private http: HttpClient, private loginService: LoginService, private route: Router) { }
+  constructor(public authService: AuthenticationService, private jwtHelper: JwtHelperService, private http: HttpClient, private loginService: LoginService, private route: Router) { }
 
   ngOnInit() {
    

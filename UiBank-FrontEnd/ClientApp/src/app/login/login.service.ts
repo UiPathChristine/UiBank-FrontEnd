@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 })
 export class LoginService {
   currentAccounts: Observable<Account[]>;
-  loginURL: string = "https://www.pokerrat.co.uk:3000/api/users/login/";
+  loginURL: string = "https://uibank-api.azurewebsites.net/api/users/login";
   quotesSuffix: string = "users/";
   getQuoteSuffix: string = "quotes/";
   response: string;
@@ -38,7 +38,7 @@ export class LoginService {
     let credentials = JSON.stringify(userData.value);
     this.loggingInUser = userData;
     console.log(this.loggingInUser);
-    return this.http.post("https://uibank-api.azurewebsites.net/api/users/login", userData, {
+    return this.http.post(this.loginURL, userData, {
       headers: new HttpHeaders({
         "Content-Type": "application/json"
       })

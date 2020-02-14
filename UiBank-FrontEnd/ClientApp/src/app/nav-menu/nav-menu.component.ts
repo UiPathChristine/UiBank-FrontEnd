@@ -11,7 +11,7 @@ export class NavMenuComponent implements OnInit {
   isExpanded = false;
   loggedIn: boolean = false;
 
-  constructor(private router: Router, private authService: AuthenticationService) { }
+  constructor(private router: Router, public authService: AuthenticationService) { }
 
   ngOnInit() {
     this.loggedIn = this.authService.getLoggedInStatus();

@@ -29,9 +29,21 @@ export class LoanLookupComponent implements OnInit {
 
     this.loanService.getLoanInfo(this.quoteID.quoteID).subscribe(reply => {
       this.myLoan = reply;
-      this.route.navigate(['loans/detailView', this.quoteID.quoteID]);
+      const isValid: boolean = true;
+      this.route.navigate(
+        [
+          'loans/detailView',
+          isValid,
+          this.quoteID.quoteID,
+          this.myLoan.term,
+          this.myLoan.amount,
+          this.myLoan.rate,
+          this.myLoan.age,
+          this.myLoan.income
+        ]
+      );
 
-    }, err => { console.log(err); this.route.navigate(['loans/detailView', 'id not found']); });
+    }, err => { console.log(err); console.log('passing false'); this.route.navigate(['loans/detailView', false, this.quoteID.quoteID]); });
 
     
 

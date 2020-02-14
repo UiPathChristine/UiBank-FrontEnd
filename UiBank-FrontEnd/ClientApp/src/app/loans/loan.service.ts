@@ -12,7 +12,7 @@ import { catchError } from 'rxjs/operators';
 export class LoanService {
 
   currentAccounts: Observable<Account[]>;
-  loanURL: string = "https://www.pokerrat.co.uk:3000/api/";
+  loanURL: string = "https://uibank-api.azurewebsites.net/api/";
   quotesSuffix: string = "quotes/newquote";
   getQuoteSuffix: string = "quotes/";
   response: string;

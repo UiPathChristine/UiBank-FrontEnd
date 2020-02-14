@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class AccountsService {
   currentAccounts: Observable<Account[]>;
-  accountsURLPrefix: string = "https://virtserver.swaggerhub.com/uibank-api/uibank/1.0.2/customer/";
+  accountsURLPrefix: string = "https://uibank-api.azurewebsites.net/api/accounts";
   accountURLSuffix: string = "/accounts";
   handleError;
   customers: any;
@@ -32,7 +32,7 @@ export class AccountsService {
   //  return Promise.resolve(ACCOUNTS);
   //}
 
-  getAccounts(): any {
+  getAccounts(): Observable<Account[]> {
 
     //return this.http.get(this.accountsURLPrefix + "1" + this.accountURLSuffix)
     //  .toPromise()
@@ -43,7 +43,8 @@ export class AccountsService {
     //  .subscribe(response => this.currentAccounts = response)
     //  .catch(this.handleError);
 
-    return this.http.get(this.accountsURLPrefix + "1" + this.accountURLSuffix);
+    //OG METHOD
+    //return this.http.get(this.accountsURLPrefix + "1" + this.accountURLSuffix);
 
     //let token = localStorage.getItem("jwt");
     //return this.http.get<Account[]>(this.accountsURLPrefix + "1" + this.accountURLSuffix, {
@@ -69,6 +70,17 @@ export class AccountsService {
     //    console.log(err)
        
     //});
+
+
+
+      return this.http.get<Account[]>(this.accountsURLPrefix,
+        {
+          headers: new HttpHeaders({
+            "Authorization": localStorage.getItem("sessionToken")
+          })
+        }
+      );
+
 
 
   }

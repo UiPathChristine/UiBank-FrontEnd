@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { LoanService } from '../loans/loan.service';
 import { Location } from '@angular/common';
+import { CsvDataService } from '../file-actions/csv-data.service';
+import * as jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-account-details',
@@ -36,7 +39,6 @@ export class AccountDetailsComponent implements OnInit {
   ]
   
 
-
   constructor(private _location: Location, private route: ActivatedRoute, private loanService: LoanService) { }
 
   ngOnInit() {
@@ -44,6 +46,28 @@ export class AccountDetailsComponent implements OnInit {
       this.accountID = params['accountID'];
 
     });
+  }
+
+  htmltoPDF() {
+    // parentdiv is the html element which has to be converted to PDF
+    let data = document.getElementById('parentdiv');
+    html2canvas(data).then(canvas => {
+      const contentDataURL = canvas.toDataURL('image/png')
+      let pdf = new jsPDF('p', 'cm', 'a4'); //Generates PDF in landscape mode
+      // let pdf = new jspdf('p', 'cm', 'a4'); Generates PDF in portrait mode
+      pdf.addImage(contentDataURL, 'PNG', 0, 0, 29.7, 21.0);
+      pdf.save('Filename.pdf');
+    }); 
+
+  }
+
+  transferMoney() {
+    console.log('new funcitn');
+  }
+
+  downloadCSV() {
+    CsvDataService.exportToCsv('transactionData.csv', this.transactions);
+
   }
 
 }

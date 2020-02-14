@@ -36,6 +36,7 @@ import { TransferMoneyComponent } from './transfer-money/transfer-money.componen
 import { AuthGuard } from './guards/auth-guard.service';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthenticationService } from './auth/authentication.service';
+import { CsvDataService } from './file-actions/csv-data.service';
 
 export function tokenGetter() {
   return localStorage.getItem("jwt");
@@ -84,7 +85,7 @@ export function tokenGetter() {
       { path: 'help', component: HelpComponent },
       { path: 'accounts', component: AccountsComponent, canActivate: [AuthGuard] },
       { path: 'account-apply', component: AccountApplyComponent },
-      { path: 'account-details/:accountID', component: AccountDetailsComponent },
+      { path: 'account-details/:isValid/:quoteId', component: AccountDetailsComponent },
       { path: 'cards', component: CardsComponent },
       { path: 'userprofile', component: ProfileComponent, canActivate: [AuthGuard] },
       { path: 'register-account', component: RegisterComponent },
@@ -93,7 +94,12 @@ export function tokenGetter() {
       { path: 'loans/apply', component: LoanApplicationComponent },
       { path: 'loans/lookup', component: LoanLookupComponent },
       { path: 'loans/result/:loanID/:rate/:success', component: LoanResultComponent },
-      { path: 'loans/detailView/:quoteID', component: LoanDetailsComponent }
+      //{ path: 'loans/detailView/:quoteID', component: LoanDetailsComponent },
+      { path: 'loans/detailView/:isValid/:quoteId', component: LoanDetailsComponent },
+      {
+        path: 'loans/detailView/:isValid/:quoteId/:term/:amount/:rate/:age/:income',
+        component: LoanDetailsComponent
+      }
     ]),
     JwtModule.forRoot({
       config: {
@@ -104,7 +110,7 @@ export function tokenGetter() {
     }),
     BrowserAnimationsModule
   ],
-  providers: [AuthenticationService, RegisterService, AuthGuard],
+  providers: [AuthenticationService, RegisterService, AuthGuard, CsvDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

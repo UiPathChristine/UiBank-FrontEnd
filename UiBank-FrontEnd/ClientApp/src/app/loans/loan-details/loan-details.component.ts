@@ -25,18 +25,27 @@ export class LoanDetailsComponent implements OnInit {
   public errorMessage: string;
   public validID: string = "";
   public giant: boolean = true;
+  public isValid: boolean;
 
   constructor(private _location: Location, private route: ActivatedRoute, private loanService: LoanService) { }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
-      this.quoteID = params['quoteID'];
-
-      this.loanService.getLoanInfo(this.quoteID).subscribe(reply => {
-        this.myLoan = reply;
-        
-      }, err => { console.log(err); this.validID = err.status; })
+      console.log(params);
+      this.quoteID = params['quoteId'];
+      this.validID = params['isValid'];
+      this.term = params['term'];
+      this.amount = params['amount'];
+      this.rate = params['rate'];
+      this.age = params['age'];
+      this.income = params['income'];
     })
+
+    if (this.validID == "true") {
+      this.isValid = true;
+    } else {
+      this.isValid = false;
+    }
 
   }
 

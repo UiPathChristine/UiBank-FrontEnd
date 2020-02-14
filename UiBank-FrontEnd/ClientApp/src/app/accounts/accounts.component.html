@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-8">
-    <div class="card shadow-sm uibank-gradient">
-      <div class="card-header" style="float: left">
+    <div class="card shadow-sm ">
+      <div class="card-header uibank-gradient" style="float: left">
         <div class="sm-spacer"></div>
 
         <div class="text-white">
@@ -9,95 +9,114 @@
           <p>Here is your account summary:</p>
         </div>
 
-      
+
       </div>
+
+
       <div class="card-body">
 
-      
-      <div class="row">
-        <div class="col-6">
+        <div class="row bottom-buffer text-center" *ngFor="let account of currentAccounts; let index=index">
 
 
-          <div *ngFor="let account of currentAccounts">
+
+          <div class="sm-spacer"></div>
+          <div class="text-center col-12">
+            <div class="account-card"  style="overflow: hidden; margin-top: auto; margin-bottom: auto; " >
+              <div class="containter">
+                <div  style="float: left; margin-top: auto; margin-bottom: auto; " class="d-inline text-left">
+                  <p class="text-left">
+                    <a class="text-blue" [routerLink]="['/account-details', account.id]">
+                      <strong>{{account.friendlyName}}</strong>
+                    </a>
+                   
+                    <br />
+                    <span class="text-gray">
+                      ......{{trimID(account.id)}}
+                    </span>
+                  </p>
 
 
-            <div class="card text-center">
-              <div class="card-header">
-                <div class="sm-spacer"></div>
-                <img height="40px" src="../../../assets/images/account.png" />
+                </div>
+                <div style="float: right; margin-top: auto; margin-bottom: auto; " class="d-inline text-right">
+                  <p>
 
-                <h5>
-                  {{account.friendly_name}}
-                </h5>
-                <p>{{account.type}}</p>
-
-
+                    Account Balance:
+                  <br/>
+                  {{account.balance | currency:'USD':'symbol':'4.2-2'}}
+                  </p>
+                </div>
               </div>
-
-              <div class="card-body">
-
-                <div class="sm-spacer"></div>
-
-                <p>
-                  Account Balance:
-                </p>
-                <h5>{{account.balance | currency:'USD':'symbol':'4.2-2'}}</h5>
-
-                <div class="sm-spacer"></div>
-
-                <button type="submit" [routerLink]="['/account-details', this.accountID]" class="btn btn-blue">View Details</button>
-
-
-                <div class="sm-spacer"></div>
-
-
-              </div>
-
             </div>
           </div>
+         
+          <!--<div class="col-6">
+        <div class="card new-account-card text-center">
 
-          
+          <div class="card-body new-account-body">
+
+            <div class="sm-spacer"></div>
+
+            <a [routerLink]="['/account-apply']">
+              <p>
+                Add a new account
+              </p>
+
+              <div class="sm-spacer"></div>
+
+              <img height="80px" src="../../../assets/images/icons/plus.png" />
+
+            </a>
+            <div class="sm-spacer"></div>
+
+          </div>
 
         </div>
+
+      </div>-->
+
+        </div>
+        <div class="sm-spacer"></div>
+
+
         <!--This is the card that leads to a new account-->
-        <div class="col-6">
-          <div class="card new-account-card text-center">
+        <!--<div class="col-6">
+      <div class="card new-account-card text-center">
 
-            <div class="card-body new-account-body">
+        <div class="card-body new-account-body">
 
-              <div class="sm-spacer"></div>
+          <div class="sm-spacer"></div>
 
-              <a  [routerLink]="['/account-apply']" >
-                <p>
-                  Add a new account
-                </p>
+          <a  [routerLink]="['/account-apply']" >
+            <p>
+              Add a new account
+            </p>
 
-                <div class="sm-spacer"></div>
+            <div class="sm-spacer"></div>
 
-                <img height="80px" src="../../../assets/images/icons/plus.png" />
+            <img height="80px" src="../../../assets/images/icons/plus.png" />
 
-              </a>
-
-
-
-              <div class="sm-spacer"></div>
+          </a>
 
 
-            </div>
 
-          </div>
+          <div class="sm-spacer"></div>
+
+
         </div>
-        </div>
+
+      </div>
+    </div>-->
+        <!--</div>-->
+
+        <div class="sm-spacer"></div>
+
       </div>
 
-      <div class="sm-spacer"></div>
 
     </div>
-
-
   </div>
   <div class="col-4">
-    <div class="card shadow-sm text-center">
+    <div class="card bg-white shadow-sm text-center">
       <div class="card-header blue-bg" style="float: left">
         <div class="sm-spacer"></div>
 
@@ -107,8 +126,8 @@
 
       </div>
 
-      <div class="card-body grey-bg">
-        <div class="card">
+      <div class="card-body bg-white">
+        <div class="help-card card">
           <div class="card-header bg-white">
             <h5>
               Payment Center
@@ -127,15 +146,12 @@
 
             <div class="sm-spacer"></div>
 
-            <div class="btn-blue-outline">
-              Set Up Autopay
-            </div>
           </div>
         </div>
 
         <div class="sm-spacer"></div>
 
-        <div class="card">
+        <div class="help-card card">
           <div class="card-header bg-white">
             <h5>
               Loan Center
@@ -163,6 +179,5 @@
 
   </div>
 </div>
-
 
 <div class="spacer"></div>

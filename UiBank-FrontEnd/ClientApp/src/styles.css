@@ -198,6 +198,10 @@ body { margin: 0; font-family: Poppins, sans-serif; }
 }
 
 
+.text-gray {
+  color: #d3d3d3;
+}
+
 
 .vertical-center {
     margin-top: auto;

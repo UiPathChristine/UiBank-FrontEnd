@@ -7,7 +7,7 @@
     </a>
   </div>
 
-<div *ngIf="myLoan != undefined && validID === ''; else notApproved" class="text-center">
+<div *ngIf="isValid; else notApproved" class="text-center">
 
     <div class="card-body form-box-smooshed">
 
@@ -19,11 +19,11 @@
       <div class="spacer"></div>
 
       <h5>Loan ID: {{quoteID}} </h5>
-      <h5>Term: {{myLoan.term}} </h5>
-      <h5>Loan Amount: ${{myLoan.amount}} </h5>
-      <h5>Loan Rate: {{myLoan.rate}}% </h5>
-      <h5>Applicant Age: {{myLoan.age}} </h5>
-      <h5>Applicant Yearly Income: {{myLoan.income}} </h5>
+      <h5>Term: {{term}} </h5>
+      <h5>Loan Amount: ${{amount}} </h5>
+      <h5>Loan Rate: {{rate}}% </h5>
+      <h5>Applicant Age: {{age}} </h5>
+      <h5>Applicant Yearly Income: {{income}} </h5>
 
       <div class="spacer"></div>
 
@@ -31,10 +31,25 @@
  
 
 </div>
-  <ng-template #notApproved class="text-center">
-    <div style="padding-bottom: 300px"></div>
-    You were not approved
-  </ng-template>
+<ng-template #notApproved class="text-center">
+  <div class="card-body form-box-smooshed">
+
+    <div class="spacer"></div>
+    <div class="sm-spacer"></div>
+
+    <h1 class="text-center">Sorry! We weren't able to locate a matching loan ID.
+    </h1>
+
+    <h4 class="text-center">
+      Double check your loan ID and try again!
+    </h4>
+
+    <div class="sm-spacer"></div>
+    <div class="spacer"></div>
+
+  </div>
+  
+</ng-template>
 
 
   <div class="spacer"></div>

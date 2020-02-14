@@ -12,20 +12,23 @@
         <hr style="background-color: white"/>
 
         <div class="row row-border">
-          <div class="col-4 text-white text-center">
-            <a [routerLink]="">
+          <div class="col-4 btn text-white text-center">
+            <div class="btn text-white" (click)="transferMoney()">
               Transfer Money
-            </a>
+            </div>
           </div>
-          <div class="col-4 text-white text-center">
-            <a [routerLink]="">
-              View Statements
-            </a>
+          <div class="col-4 btn text-white vertical-center text-center">
+            <div>
+              <a style="color: white" download="filename" target="_blank" href="/assets/documents/AnimalBoardingInvoice.pdf">
+                Download Statement
+              </a>
+            </div>
+
           </div>
-          <div class="col-4 text-white text-center">
-            <a [routerLink]="">
-              Manage Account
-            </a>
+          <div class="col-4 btn text-white text-center">
+            <div class="btn text-white" (click)="downloadCSV()">
+              Download Transactions
+            </div>
           </div>
         </div>
       </div>
@@ -58,7 +61,6 @@
       <div class="sm-spacer"></div>
 
     </div>
-
 
   </div>
  
