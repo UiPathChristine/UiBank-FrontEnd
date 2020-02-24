@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-help',
@@ -11,5 +12,7 @@ export class HelpComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  sendContactEmail(form: NgForm) {
+    console.log("hi");
+  }
 }

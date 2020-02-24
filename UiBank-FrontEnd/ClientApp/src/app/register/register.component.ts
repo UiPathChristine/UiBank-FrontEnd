@@ -16,7 +16,7 @@ export class RegisterComponent implements OnInit {
   public employmentStatuses: string[] = ["Full-time", "Part-time", "Unemployed"];
   public maritalStatuses: string[] = ["Single", "Married", "Divorced", "Widowed"];
   public titles: string[] = ["ms", "mrs", "mr"];
-  public newUser: User;
+  public newUser: User = new User();
   public response: User;
   public failedRegistration: boolean = false;
   public httpError: HttpErrorResponse;

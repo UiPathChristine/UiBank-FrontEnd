@@ -37,6 +37,9 @@ import { AuthGuard } from './guards/auth-guard.service';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthenticationService } from './auth/authentication.service';
 import { CsvDataService } from './file-actions/csv-data.service';
+import { MobileBankingComponent } from './mobile-banking/mobile-banking.component';
+import { CreditCardsComponent } from './credit-cards/credit-cards.component';
+import { PasswordResetComponent } from './password-reset/password-reset.component';
 
 export function tokenGetter() {
   return localStorage.getItem("jwt");
@@ -69,7 +72,10 @@ export function tokenGetter() {
     HelpComponent,
     AccountApplyComponent,
     TransferMoneyComponent,
-    ProfileComponent
+    ProfileComponent,
+    MobileBankingComponent,
+    CreditCardsComponent,
+    PasswordResetComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -85,7 +91,7 @@ export function tokenGetter() {
       { path: 'help', component: HelpComponent },
       { path: 'accounts', component: AccountsComponent, canActivate: [AuthGuard] },
       { path: 'account-apply', component: AccountApplyComponent },
-      { path: 'account-details/:isValid/:quoteId', component: AccountDetailsComponent },
+      { path: 'account-details/:accountID', component: AccountDetailsComponent },
       { path: 'cards', component: CardsComponent },
       { path: 'userprofile', component: ProfileComponent, canActivate: [AuthGuard] },
       { path: 'register-account', component: RegisterComponent },
@@ -99,7 +105,10 @@ export function tokenGetter() {
       {
         path: 'loans/detailView/:isValid/:quoteId/:term/:amount/:rate/:age/:income',
         component: LoanDetailsComponent
-      }
+      },
+      { path: 'mobile-banking', component: MobileBankingComponent },
+      { path: 'credit-cards', component: CreditCardsComponent },
+      { path: 'transfer-money', component: TransferMoneyComponent }
     ]),
     JwtModule.forRoot({
       config: {

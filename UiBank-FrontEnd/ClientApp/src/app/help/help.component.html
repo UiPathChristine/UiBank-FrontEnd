@@ -4,6 +4,8 @@
       <div class="col-12 text-center">
 
         <div class="spacer"></div>
+        <div class="spacer"></div>
+
 
         <h2 class="text-white">
           Need Some Help?
@@ -16,67 +18,67 @@
         </p>
 
         <div class="sm-spacer"></div>
+        <div class="spacer"></div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="jumbotron jumbotron-fluid shadow-sm uibank-gradient">
-  <div class="container">
-    <div class="row">
-      <!-- CHECKING AND SAVINGS ACCOUNT BOX -->
-      <div class="col-lg-4 col-4 text-center">
-        <div class="card shadow-sm">
 
-          <div class="card-body">
+<div class="card shadow-sm">
 
-            <div class="sm-spacer"></div>
-            <img src="../../../assets/images/icons/money.png" />
+  <div class="card-body">
 
-            <div class="sm-spacer">
-            </div>
+    <div class="sm-spacer"></div>
+    <div class="sm-spacer"></div>
 
-            Tech Support
-
-            <div class="sm-spacer"></div>
-          </div>
-        </div>
-      </div>
-      <!-- CREDIT CARD BOX -->
-      <div class="col-lg-4 col-4 text-center vertical-center">
-        <div class="card shadow-sm" height="100%">
-
-          <div class="card-body">
-
-            <div class="sm-spacer"></div>
-            <img src="../../../assets/images/icons/certification.png" />
-
-            <div class="sm-spacer">
-            </div>
-
-             Report Fraud
-            <div class="sm-spacer"></div>
-          </div>
-        </div>
-      </div>
-      <!-- VIRTUAL COMPONENT GUIDE -->
-      <div class="col-lg-4 col-4 text-center vertical-center">
-        <div class="card shadow-sm">
-
-          <div class="card-body">
-
-            <div class="sm-spacer"></div>
-            <img src="../../../assets/images/icons/low-cost.png" />
-
-            <div class="sm-spacer">
-            </div>
-
-            FAQ
-
-            <div class="sm-spacer"></div>
-          </div>
-        </div>
-      </div>
+    <div class="text-center">
+      <h3>
+        Help Us With The Details
+      </h3>
     </div>
+
+    <div class="sm-spacer"></div>
+
+    <form class="form-box form-box-smooshed" #helpForm="ngForm" (ngSubmit)="sendContactEmail(helpForm)">
+      <div class="form-group">
+        <label for="fullName">Full Name</label>
+        <input type="text"
+               class="form-control"
+               id="fullName"
+               aria-describedby="fullName"
+               name="fullName"
+               placeholder="Enter full name">
+      </div>
+      <div class="form-group">
+        <label for="emailAddress">Email Address</label>
+        <input type="text"
+               class="form-control"
+               id="emailAddress"
+               aria-describedby=""
+               name="emailAddress"
+               placeholder="Enter the email address"/>
+      </div>
+      <div class="form-group">
+        <label for="message">Tell Us About Your Problem</label>
+        <textarea type="text"
+               class="form-control"
+               id="message"
+               aria-describedby="message"
+               name="message"
+               placeholder="How can we help">
+        </textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Contact Us</button>
+    </form>
+
+    <div class="sm-spacer"></div>
+    <div class="sm-spacer"></div>
+
   </div>
 </div>
+
+
+<div class="spacer"></div>
+
