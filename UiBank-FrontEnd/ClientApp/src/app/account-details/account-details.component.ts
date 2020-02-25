@@ -5,6 +5,11 @@ import { Location } from '@angular/common';
 import { CsvDataService } from '../file-actions/csv-data.service';
 import * as jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
+import * as pdfMakeConfig from 'pdfmake/build/pdfmake.js';
+import * as pdfFonts from 'pdfmake/build/vfs_fonts.js';
+
+// import core lib
+import * as pdfMake from 'pdfmake/build/pdfmake';
 
 @Component({
   selector: 'app-account-details',
@@ -15,6 +20,8 @@ export class AccountDetailsComponent implements OnInit {
   public sub: any;
   public accountID: string;
   public validAccount: boolean;
+  
+
   public transactions = [
     {
       accountId: '1111',
@@ -40,6 +47,11 @@ export class AccountDetailsComponent implements OnInit {
   
 
   constructor(private _location: Location, private route: ActivatedRoute, private loanService: LoanService) { }
+
+  generatePdf() {
+    const documentDefinition = { content: 'This is an sample PDF printed with pdfMake' };
+    pdfMake.createPdf(documentDefinition).open();
+  }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
