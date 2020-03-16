@@ -7,5 +7,8 @@ export class Transaction {
   public ref: string;
   public dispute: string;
   public type: string;
+  public date: string;
+  public selectedForDispute?: boolean;
+  public id: string;
 }
 

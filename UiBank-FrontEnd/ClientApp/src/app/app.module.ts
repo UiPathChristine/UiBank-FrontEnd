@@ -20,7 +20,6 @@ import { CardsComponent } from './cards/cards.component';
 import { AccountsService } from './accounts/accounts.service';
 import { CardApplicationComponent } from './card-application/card-application.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
-import { CreateAccountComponent } from './create-account/create-account.component';
 import { AccountDetailsComponent } from './account-details/account-details.component';
 import { AccountTransfersComponent } from './account-transfers/account-transfers.component';
 import { LoansComponent } from './loans/loan-home/loans.component';
@@ -39,6 +38,13 @@ import { AuthenticationService } from './auth/authentication.service';
 import { CsvDataService } from './file-actions/csv-data.service';
 import { MobileBankingComponent } from './mobile-banking/mobile-banking.component';
 import { CreditCardsComponent } from './credit-cards/credit-cards.component';
+import { TransferResultComponent } from './transfer-result/transfer-result.component';
+import { DisputeTransactionComponent } from './dispute-transaction/dispute-transaction.component';
+import { DisputeAccountViewComponent } from './dispute-account-view/dispute-account-view.component';
+import { AccountCreateResultsComponent } from './account-create-results/account-create-results.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { DisputeDetailsComponent } from './dispute-details/dispute-details.component';
+import { HelpReceivedComponent } from './help-received/help-received.component';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
 
 export function tokenGetter() {
@@ -60,7 +66,6 @@ export function tokenGetter() {
     CardsComponent,
     CardApplicationComponent,
     SideNavComponent,
-    CreateAccountComponent,
     AccountDetailsComponent,
     AccountTransfersComponent,
     LoansComponent,
@@ -75,6 +80,13 @@ export function tokenGetter() {
     ProfileComponent,
     MobileBankingComponent,
     CreditCardsComponent,
+    TransferResultComponent,
+    DisputeTransactionComponent,
+    DisputeAccountViewComponent,
+    AccountCreateResultsComponent,
+    EditProfileComponent,
+    DisputeDetailsComponent,
+    HelpReceivedComponent,
     PasswordResetComponent
   ],
   imports: [
@@ -84,16 +96,20 @@ export function tokenGetter() {
     MaterialDesignModule,
     RouterModule.forRoot([
       { path: '', component: WelcomePageComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
+      { path: 'home', component: WelcomePageComponent },
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
       { path: 'help', component: HelpComponent },
       { path: 'accounts', component: AccountsComponent, canActivate: [AuthGuard] },
-      { path: 'account-apply', component: AccountApplyComponent },
-      { path: 'account-details/:accountID', component: AccountDetailsComponent },
+      { path: 'account-apply', component: AccountApplyComponent, canActivate: [AuthGuard] },
+      { path: 'account-details/:accountID/:balance/:accountName', component: AccountDetailsComponent },
+      { path: 'account-create-results/:accountId/:friendlyName', component: AccountCreateResultsComponent },
       { path: 'cards', component: CardsComponent },
+      { path: 'credit-cards/apply', component: CardApplicationComponent },
+      { path: 'dispute-transaction/:accountId', component: DisputeTransactionComponent },
+      { path: 'dispute-transaction/view-details/:accountId', component: DisputeAccountViewComponent },
       { path: 'userprofile', component: ProfileComponent, canActivate: [AuthGuard] },
+      { path: 'userprofile/edit', component: EditProfileComponent, canActivate: [AuthGuard] },
       { path: 'register-account', component: RegisterComponent },
       { path: 'register-account/success/:username', component: RegisterSuccessComponent },
       { path: 'loans', component: LoansComponent },
@@ -103,12 +119,15 @@ export function tokenGetter() {
       //{ path: 'loans/detailView/:quoteID', component: LoanDetailsComponent },
       { path: 'loans/detailView/:isValid/:quoteId', component: LoanDetailsComponent },
       {
-        path: 'loans/detailView/:isValid/:quoteId/:term/:amount/:rate/:age/:income',
+        path: 'loans/detailView/:isValid/:quoteId/:term/:amount/:rate/:age/:income/:email',
         component: LoanDetailsComponent
       },
       { path: 'mobile-banking', component: MobileBankingComponent },
       { path: 'credit-cards', component: CreditCardsComponent },
-      { path: 'transfer-money', component: TransferMoneyComponent }
+      { path: 'transfer-money', component: TransferMoneyComponent },
+      { path: 'transfer-result', component: TransferResultComponent },
+      { path: 'help/confirmation', component: HelpReceivedComponent },
+      { path: 'password-reset', component: PasswordResetComponent }
     ]),
     JwtModule.forRoot({
       config: {

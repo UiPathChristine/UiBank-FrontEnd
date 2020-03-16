@@ -30,8 +30,14 @@ export class AuthenticationService {
   //    return false;
   //  }
   //}
+
+  // set it equal to a session storage?????? TO DO 
   getLoggedInStatus(): boolean {
-    return this.userLoggedIn;
+    if (localStorage.getItem("userId") === null) {
+      return false;
+    } else {
+      return true;
+    }
   }
 
   setLoggedInStatus(status: boolean) {

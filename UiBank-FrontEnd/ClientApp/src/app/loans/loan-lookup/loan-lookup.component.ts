@@ -39,7 +39,8 @@ export class LoanLookupComponent implements OnInit {
           this.myLoan.amount,
           this.myLoan.rate,
           this.myLoan.age,
-          this.myLoan.income
+          this.myLoan.income,
+          this.myLoan.email
         ]
       );
 

@@ -1,40 +1,149 @@
 <div class="card shadow-sm">
-  <div class="card-header">
-    <h3>
-      Profile Details:
+  <div class="card-header uibank-gradient">
 
-    </h3>
-    <div style="display: block; float: right" class="btn btn-blue">
-      Edit Profile Details
+    <div class="sm-spacer"></div>
+
+    <div style="overflow: hidden; margin-top: auto; margin-bottom: auto; ">
+      <div class="container">
+        <div style="float: left; margin-top: auto; margin-bottom: auto; " class="vertical-center d-inline text-left">
+          <h3 class="text-white vertical-center">
+            Hello {{this.currentUser.firstName}}!
+          </h3>
+          <h3 class="text-white vertical-center">
+            Profile Details:
+          </h3>
+        </div>
+        <!--<div style="float: right; margin-top: auto; margin-bottom: auto; " class="d-inline text-right">
+          <div style="display: block; float: right" [routerLink]="['/userprofile/edit']" class="btn btn-white vertical-center">
+            Edit Profile Details
+          </div>
+        </div>-->
+      </div>
     </div>
+
+    <div class="sm-spacer"></div>
   </div>
+
   <div class="card-body">
+    <div class="container">
+      <div class="row">
+        <div class="col-8">
+          <label style="color: gray; font-size: 12px">
+            Username
+          </label>
+          <h5 class="text-black" id="username">
+            <strong>
+              {{this.currentUser.username}}
+            </strong>
+          </h5>
 
-    <p>
-      <strong>
-        Name:
-      </strong>
-      {{this.currentUser.firstName}}
-      <br />
-      Age: {{this.currentUser.age}}
-      <br />
-      Sex: {{this.currentUser.gender}}
-      <br />
-      Email Address: {{this.currentUser.email}}
-      <br />
-      Marital Status: {{this.currentUser.maritalStatus}}
-      <br />
-      Dependents: {{this.currentUser.numberOfDependents}}
-      <br />
-      Email Address: {{this.currentUser.email}}
-      <br />
-      Email Address: {{this.currentUser.email}}
-      <br />
-      Email Address: {{this.currentUser.email}}
-      <br />
-      Email Address: {{this.currentUser.email}}
+          <label style="color: gray; font-size: 12px">
+            First Name
+          </label>
+          <h5 class="text-black" id="firstName">
+            <strong>
+              {{this.currentUser.firstName}}
+            </strong>
+          </h5>
 
-    </p>
+          <label style="color: gray; font-size: 12px">
+            Last Name
+          </label>
+          <h5 class="text-black" id="lastName">
+            <strong>
+              {{this.currentUser.lastName}}
+            </strong>
+          </h5>
+
+
+          <label style="color: gray; font-size: 12px">
+            Email
+          </label>
+          <h5 class="text-black" id="email">
+            <strong>
+              {{this.currentUser.email}}
+            </strong>
+          </h5>
+
+          <label style="color: gray; font-size: 12px">
+            Age
+          </label>
+          <div *ngIf="this.currentUser.age === undefined; else noAge">
+            <h5 class="text-black" id="age">
+              <strong>
+                {{this.currentUser.age}}
+              </strong>
+            </h5>
+          </div>
+          <ng-template #noAge class="text-center">
+            <h5 class="text-black" id="age">
+              <strong>
+                N/A
+              </strong>
+            </h5>
+          </ng-template>
+
+
+          <!--<label style="color: gray; font-size: 12px">
+            Marital Status
+          </label>
+          <div *ngIf="this.currentUser.maritalStatus === undefined || this.currentUser.maritalStatus === ''; else noMaritalStatus">
+            <h5 class="text-black" id="maritalStatus">
+              <strong>
+                {{this.currentUser.maritalStatus}}
+              </strong>
+            </h5>
+          </div>
+          <ng-template #noMaritalStatus class="text-center">
+            <h5 class="text-black" id="maritalStatus">
+              <strong>
+                N/A
+              </strong>
+            </h5>
+          </ng-template>
+
+
+          <label style="color: gray; font-size: 12px">
+            Number of Dependents
+          </label>
+          <div *ngIf="this.currentUser.numDependents == undefined || this.currentUser.numDependents == ''; else noDependents">
+            <h5 class="text-black" id="numberOfDependents">
+              <strong>
+                {{this.currentUser.numDependents}}
+              </strong>
+            </h5>
+          </div>
+          <ng-template #noDependents class="text-center">
+            <h5 class="text-black" id="numberOfDependents">
+              <strong>
+                N/A
+              </strong>
+            </h5>
+          </ng-template>-->
+
+
+          <label style="color: gray; font-size: 12px">
+            User ID
+          </label>
+          <h5 class="text-black" id="id">
+            <strong>
+              {{this.currentUser.id}}
+            </strong>
+          </h5>
+        </div>
+        <div class="col-4">
+          <div class="vertical-center" *ngIf="this.currentUser.gender == 'male'">
+            <img class="vertical-center" height="200px" src="../../../../assets/images/icons/father.png" />
+
+          </div>
+          <div class="vertical-center" *ngIf="this.currentUser.gender == 'female'">
+            <img class="vertical-center" height="200px" src="../../../../assets/images/icons/mother.png" />
+
+          </div>
+        </div>
+      </div>
+    </div>
+   
   </div>
 </div>
 

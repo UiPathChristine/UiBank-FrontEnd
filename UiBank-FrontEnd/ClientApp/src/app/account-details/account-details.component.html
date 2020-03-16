@@ -1,34 +1,63 @@
-<!--<button (click)="generatePdf()">Open PDF</button>-->
-
 <div class="row">
   <div class="col-12">
     <div class="card shadow-sm ">
       <div class="card-header uibank-gradient" style="float: left">
+        <a style="cursor: pointer" class="text-white" (click)="backButton()">
+          <strong>
+            <
+          </strong>
+        </a>
         <div class="sm-spacer"></div>
 
-        <div class="text-white">
-          <h3>Hello Rick!</h3>
-          <p>Transaction History:</p>
+        <div class="account-card" style="overflow: hidden; margin-top: auto; margin-bottom: auto; ">
+          <div class="containter">
+            <div style="float: left; margin-top: auto; margin-bottom: auto; " class="text-white d-inline text-left">
+              <h3>
+                <strong>{{accountName}} - Transaction History</strong>
+
+              </h3>
+              <p>
+                <strong>
+                  Current Account Balance:
+                </strong>
+              </p>
+              <h4>
+                <strong>
+                  {{accountBalance | currency:'USD':'symbol':'.2-2'}}
+                </strong>
+              </h4>
+            </div>
+
+          </div>
         </div>
 
-        <hr style="background-color: white"/>
+        <hr style="background-color: white" />
 
         <div class="row row-border">
-          <div class="col-4 btn text-white text-center">
-            <div class="btn text-white" (click)="transferMoney()">
-              Transfer Money
+          <div class="col-3 btn text-white vertical-center text-center">
+            <div>
+              <a class="text-white" id="disputeTransaction" download="filename" [routerLink]="['/dispute-transaction', this.accountID]">
+                Dispute Transaction
+              </a>
             </div>
           </div>
-          <div class="col-4 btn text-white vertical-center text-center">
+          <div class="col-3 btn text-white vertical-center text-center">
             <div>
-              <a style="color: white" download="filename" target="_blank" href="/assets/documents/AnimalBoardingInvoice.pdf">
+              <a class="text-white" id="transferMoney" download="filename" [routerLink]="['/transfer-money']">
+                Transfer Money
+              </a>
+            </div>
+          </div>
+          <div class="col-3 btn text-white vertical-center text-center">
+            <div>
+              <a style="color: white" id="downloadStatements" download="filename" (click)="generatePdf()">
                 Download Statement
               </a>
             </div>
 
           </div>
-          <div class="col-4 btn text-white text-center">
-            <div class="btn text-white" (click)="downloadCSV()">
+          <div class="col-3 btn text-white text-center">
+            <div class="btn text-white" id="downloadTransactions" (click)="downloadCSV()">
               Download Transactions
             </div>
           </div>
@@ -38,21 +67,25 @@
         <table class="table table-striped table-bordered">
           <thead>
             <tr>
-              <th scope="col">Transaction Amount</th>
+              <th scope="col">Date</th>
               <th scope="col">Description</th>
-              <th scope="col">Other</th>
+              <th scope="col">Transaction Amount</th>
+              <th scope="col">Balance</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let transaction of transactions">
               <td>
-                {{transaction.amount}}
+                {{transaction.date | date: 'shortDate' }}
               </td>
               <td>
                 {{transaction.description}}
               </td>
+              <td [style.color]="transaction.type === 'credit' ? 'green' : transaction.type === 'debit' ? 'red' : 'black'">
+                {{transaction.amount | currency:'USD':'symbol':'.2-2'}}
+              </td>
               <td>
-                {{transaction.accountId}}
+                {{transaction.balance | currency:'USD':'symbol':'.2-2'}}
               </td>
             </tr>
           </tbody>

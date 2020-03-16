@@ -3,34 +3,40 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6 col-6 text-center vertical-center">
-          <h4>
-            <img src="../../../assets/images/icons/money.png" />
-            <br/>
-            <strong>
-              UiBank
-            </strong>
-          </h4>
+          <a [routerLink]="['/home']">
+            <h4>
+              <img src="../../../assets/images/icons/money.png" />
+              <br />
+              <strong>
+                UiBank
+              </strong>
+            </h4>
+          </a>
         </div>
         <div class="col-lg-6 col-6 text-center vertical-center">
-            <ul style="list-style-type:none">
-              <li>
-                Account Services
-              </li>
-              <li>
-                Card Services
-              </li>
-              <li>
+          <ul style="list-style-type:none">
+            <li>
+              <a [routerLink]="['/loans']">
                 Need a Loan?
-              </li>
-              <li>
+              </a>
+            </li>
+            <li>
+              <a [routerLink]="['/help']">
                 Contact Us
-              </li>
-            </ul>
+              </a>
+            </li>
+          </ul>
         </div>
         <div class="col-lg-4 text-center vertical-center">
 
         </div>
+
+
       </div>
     </div>
+  </div>
+
+  <div class="text-center" id="version" style="font-size: 10px; bottom: 20px; color: lightgray">
+    UiBank  v.2020.3.0
   </div>
 </footer>

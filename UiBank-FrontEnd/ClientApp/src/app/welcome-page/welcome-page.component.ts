@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { LoginService } from '../login/login.service';
 import { Router } from '@angular/router';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { AuthenticationService } from '../auth/authentication.service';
 
@@ -17,6 +17,7 @@ export class WelcomePageComponent implements OnInit {
     password: ""
   }
   public failedLogin: boolean = false;
+  public httpError: HttpErrorResponse;
 
   public response: any;
 
@@ -24,7 +25,7 @@ export class WelcomePageComponent implements OnInit {
   constructor(public authService: AuthenticationService, private jwtHelper: JwtHelperService, private http: HttpClient, private loginService: LoginService, private route: Router) { }
 
   ngOnInit() {
-   
+    console.log(localStorage.getItem("sessionToken"));
   }
 
   //isUserAuthenticated() {
@@ -50,13 +51,18 @@ export class WelcomePageComponent implements OnInit {
           console.log('returned token', res.id);
           localStorage.setItem("sessionToken", res.id);
           localStorage.setItem("userId", res.userId);
-          this.authService.setLoggedInStatus(true);
+          
+          //this.authService.setLoggedInStatus(true);
         this.route.navigate(['accounts']);
       },
-      err => {
-        console.log('HTTP Error', err);
-        console.log('failed login');
-        this.failedLogin = true;
+        err => {
+          this.httpError = err;
+          console.log('HTTP Error', err);
+          console.log('failed login');
+          if (this.httpError.status === 403) {
+            console.log("accoutn locked");
+          }
+          this.failedLogin = true;
       },
       () => console.log('HTTP request completed.'));
   }

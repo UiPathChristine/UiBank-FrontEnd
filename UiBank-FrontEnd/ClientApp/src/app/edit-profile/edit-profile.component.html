@@ -1,0 +1,111 @@
+<div class="card shadow-sm">
+  <div class="card-header uibank-gradient">
+    <div>
+      <a style="cursor: pointer" (click)="backButton()">
+        <strong class="text-white">
+          <
+        </strong>
+      </a>
+    </div>
+    <div class="sm-spacer"></div>
+
+    <div style="overflow: hidden; margin-top: auto; margin-bottom: auto; ">
+      <div class="container">
+        <div style="float: left; margin-top: auto; margin-bottom: auto; " class="vertical-center d-inline text-left">
+          <h3 class="text-white vertical-center">
+            Hello {{this.currentUser.firstName}}!
+          </h3>
+          <h3 class="text-white vertical-center">
+            Edit Your Profile Details:
+          </h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="sm-spacer"></div>
+  </div>
+
+  <div class="card-body">
+    <div class="container">
+      <div class="row">
+        <div class="col-8">
+          <form class="form-box" #updateUserForm="ngForm" (ngSubmit)="updateUserInfo(updateUserForm)">
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text"
+                     class="form-control"
+                     id="username"
+                     aria-describedby="username"
+                     [(ngModel)]="this.currentUser.username"
+                     name="username"
+                     placeholder="Enter new username">
+            </div>
+            <div class="form-group">
+              <label for="middleName">First Name</label>
+              <input type="text"
+                     class="form-control"
+                     id="middleName"
+                     aria-describedby="this.currentUser.middleName"
+                     [(ngModel)]="this.currentUser.middleName"
+                     name="middleName"
+                     placeholder="Enter first name">
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input type="text"
+                     class="form-control"
+                     id="lastName"
+                     aria-describedby="lastName"
+                     [(ngModel)]="this.currentUser.lastName"
+                     name="lastName"
+                     placeholder="Enter last name">
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="text"
+                     class="form-control"
+                     id="age"
+                     [(ngModel)]="this.currentUser.email"
+                     name="email"
+                     aria-describedby="email"
+                     placeholder="Enter email">
+            </div>
+            <div class="form-group">
+              <label for="age">Age <span class="text-gray">(MM/DD/YY)</span></label>
+              <input type="number"
+                     class="form-control"
+                     id="age"
+                     disabled
+                     aria-describedby="age"
+                     [(ngModel)]="this.currentUser.age"
+                     name="age"
+                     placeholder="Please enter your age formatted as (MM/DD/YY)">
+            </div>
+
+
+
+            <div class="sm-spacer"></div>
+
+            <button type="submit" class="btn btn-xl btn-blue">Save Changes</button>
+            <button type="button"  (click)="backButton()" style="margin-left: 20px" class="btn btn-xl btn-outline-secondary">Cancel</button>
+
+            <div class="sm-spacer"></div>
+          </form>
+        </div>
+        <div class="col-4">
+          <div class="vertical-center" *ngIf="this.currentUser.gender == 'male'">
+            <img class="vertical-center" height="200px" src="../../../../assets/images/icons/father.png" />
+
+          </div>
+          <div class="vertical-center" *ngIf="this.currentUser.gender == 'female'">
+            <img class="vertical-center" height="200px" src="../../../../assets/images/icons/mother.png" />
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="sm-spacer"></div>

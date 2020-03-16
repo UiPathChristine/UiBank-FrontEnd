@@ -19,8 +19,8 @@ export class ProfileComponent implements OnInit {
     console.log("profile user ID: " + userId);
     this.userService.getUserDetails(userId).subscribe(reply => {
       this.currentUser = reply;
+      console.log(this.currentUser);
       //this.router.navigate(['loans/detailView', this.quoteID.quoteID]);
-
     }, err => { console.log(err); });
 
 

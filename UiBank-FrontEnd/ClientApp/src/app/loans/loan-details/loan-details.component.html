@@ -9,25 +9,31 @@
 
 <div *ngIf="isValid; else notApproved" class="text-center">
 
-    <div class="card-body form-box-smooshed">
+  <div class="card-body form-box-smooshed">
 
-      <div class="spacer"></div>
-      <div class="sm-spacer"></div>
+    <div class="spacer"></div>
+    <div class="sm-spacer"></div>
 
-      <h1 class="text-center">Your Loan Details: </h1>
+    <h1 class="text-center">Your Loan Details: </h1>
 
-      <div class="spacer"></div>
+    <div class="spacer"></div>
 
-      <h5>Loan ID: <span class="text-blue" id="quoteID">{{quoteID}}</span> </h5>
-      <h5>Term:  <span class="text-blue" id="term">{{term}}</span>  </h5>
-      <h5>Loan Amount:  <span class="text-blue" id="amount">$<span id="amountValue">{{amount}}</span></span>  </h5>
-      <h5>Loan Rate:  <span class="text-blue" id="rate"><span id="rateValue">{{rate}}</span>%</span>  </h5>
-      <h5>Applicant Age:  <span class="text-blue" id="age">{{age}}</span>  </h5>
-      <h5>Applicant Yearly Income: <span class="text-blue" id="income">{{income}}</span>  </h5>
-
-      <div class="spacer"></div>
-
+    <div *ngIf="email === '' || email === undefined; else validEmail">
+      <h5>Email Address: <span class="text-blue" id="email">N/A</span> </h5>
     </div>
+    <ng-template #validEmail>
+      <h5>Email Address: <span class="text-blue" id="email">{{email}}</span> </h5>
+    </ng-template>
+    <h5>Loan ID: <span class="text-blue" id="quoteID">{{quoteID}}</span> </h5>
+    <h5>Term:  <span class="text-blue" id="term">{{term}}</span>  </h5>
+    <h5>Loan Amount:  <span class="text-blue" id="amount">$<span id="amountValue">{{amount}}</span></span>  </h5>
+    <h5>Loan Rate:  <span class="text-blue" id="rate"><span id="rateValue">{{rate}}</span>%</span>  </h5>
+    <h5>Applicant Age:  <span class="text-blue" id="age">{{age}}</span>  </h5>
+    <h5>Applicant Yearly Income: <span class="text-blue" id="income">{{income}}</span>  </h5>
+
+    <div class="spacer"></div>
+
+  </div>
  
 
 </div>

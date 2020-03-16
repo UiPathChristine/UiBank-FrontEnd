@@ -23,6 +23,17 @@ export class UserService {
     );
   }
 
+  updateUserDetails(user: User): Observable<User> {
+
+    return this.http.post<User>(this.userURL + this.userDetailSuffix, user,
+    {
+      headers: new HttpHeaders({
+        "Authorization": localStorage.getItem("sessionToken")
+      })
+    })
+  }
+
+
   test() {
     console.log("HELOOOOOOOOOOOOOOOOOOOOOOO");
   }

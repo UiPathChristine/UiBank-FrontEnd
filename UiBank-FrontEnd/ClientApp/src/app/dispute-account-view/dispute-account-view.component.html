@@ -1,0 +1,217 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card shadow-sm ">
+      <div class="card-header uibank-gradient" style="float: left">
+        <a style="cursor: pointer" class="text-white" (click)="backButton()">
+          <strong>
+            <
+          </strong>
+        </a>
+        <div class="sm-spacer"></div>
+
+        <div class="account-card" style="overflow: hidden; margin-top: auto; margin-bottom: auto; ">
+          <div class="containter">
+            <div style="float: left; margin-top: auto; margin-bottom: auto; " class="text-white d-inline text-left">
+              <h3>
+                <strong>Transaction Dispute Center</strong>
+
+              </h3>
+
+          </div>
+        </div>
+      </div>
+        </div>
+      <div class="card-body">
+
+
+        <div id="accordion">
+          <div class="card">
+            <div class="card-header" id="headingOne">
+              <h5 class="mb-0">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Your Current Disputes
+                </button>
+              </h5>
+            </div>
+
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+              <div class="card-body">
+                <div class="sm-spacer"></div>
+
+                <div *ngIf="this.disputedTransactions.length > 0; else disputes">
+                  <p> We are actively working on your case and will get in touch as soon as we have updates!</p>
+
+                  <div class="sm-spacer"></div>
+
+                  <table id="disputedTransactionTable " class="table table-striped table-bordered">
+                    <thead>
+                      <tr>
+                        <th scope="col">Status</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Transaction Amount</th>
+                        <th scope="col">Balance</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let transaction of disputedTransactions">
+                        <td id="disputedStatus">
+                          {{transaction.dispute | titlecase}}
+                        </td>
+                        <td id="disputedDate">
+                          {{transaction.date | date: 'shortDate' }}
+                        </td>
+                        <td id="disputedDescription">
+                          {{transaction.description}}
+                        </td>
+                        <td id="disputedAmount">
+                          {{transaction.amount | currency:'USD':'symbol':'.2-2'}}
+                        </td>
+                        <td id="disputedBalance">
+                          {{transaction.balance | currency:'USD':'symbol':'.2-2'}}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <ng-template #disputes id="disputes" class="text-center">
+                  <p class="text-center text-blue">This account does not have any disputes at the moment.</p>
+
+                </ng-template>
+
+                <div class="sm-spacer"></div>
+
+                <hr />
+
+                <div class="sm-spacer"></div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="headingTwo">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  Your Closed Disputes
+                </button>
+              </h5>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+              <div class="card-body">
+                <div class="sm-spacer"></div>
+
+                <div *ngIf="this.resolvedTransactions.length > 0; else resolved">
+                  <p class="text-blue"> The transactions below have been handled and processed. You can also see if the transaction was refunded. If you still have questions, please contact customer support!</p>
+
+                  <div class="sm-spacer"></div>
+
+                  <table id="resolvedTransactionTable " class="table table-striped table-bordered">
+                    <thead>
+                      <tr>
+                        <th scope="col">Status</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Transaction Amount</th>
+                        <th scope="col">Balance</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let transaction of resolvedTransactions">
+                        <td id="disputedStatus">
+                          {{transaction.dispute | titlecase}}
+                        </td>
+                        <td id="disputedDate">
+                          {{transaction.date | date: 'shortDate' }}
+                        </td>
+                        <td id="disputedDescription">
+                          {{transaction.description}}
+                        </td>
+                        <td id="disputedAmount">
+                          {{transaction.amount | currency:'USD':'symbol':'.2-2'}}
+                        </td>
+                        <td id="disputedBalance">
+                          {{transaction.balance | currency:'USD':'symbol':'.2-2'}}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <ng-template #resolved id="resolved" class="text-center">
+                  <p class="text-center text-blue">This account does not have any closed disputes at the moment.</p>
+
+                </ng-template>
+
+                <div class="sm-spacer"></div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="headingThree">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  Dispute New Transaction
+                </button>
+              </h5>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+              <div class="card-body">
+                <div class="sm-spacer"></div>
+
+                <div style="float: right; margin-top: auto; margin-bottom: auto; " class="d-inline text-right">
+                  <div style="display: block; float: right" (click)="disputeTransactions()" class="btn btn-blue-outline vertical-center">
+                    Dispute
+                  </div>
+                </div>
+
+                <p>
+                  If you would like to dispute a new transaction please select which transaction you would like to dispute and then click the "Dispute" button.
+                </p>
+
+                <table id="transactionTable " class="table table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col">Date</th>
+                      <th scope="col">Description</th>
+                      <th scope="col">Transaction Amount</th>
+                      <th scope="col">Balance</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let transaction of transactions">
+                      <td class="text-center">
+                        <input [(ngModel)]="transaction.selectedForDispute" name="disputeBox" type="checkbox" id="upForDispute" />
+                      </td>
+                      <td id="date">
+                        {{transaction.date | date: 'shortDate' }}
+                      </td>
+                      <td id="description">
+                        {{transaction.description}}
+                      </td>
+                      <td id="amount">
+                        {{transaction.amount | currency:'USD':'symbol':'.2-2'}}
+                      </td>
+                      <td id="balance">
+                        {{transaction.balance | currency:'USD':'symbol':'.2-2'}}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+              </div>
+
+              <div class="sm-spacer"></div>
+            </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+</div>
+
+
+
+<div class="spacer"></div>

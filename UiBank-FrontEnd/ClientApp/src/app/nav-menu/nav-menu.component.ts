@@ -15,12 +15,14 @@ export class NavMenuComponent implements OnInit {
 
   ngOnInit() {
     this.loggedIn = this.authService.getLoggedInStatus();
+
   }
 
   logoutUser() {
-    console.log("we've been logged out")
     localStorage.removeItem("sessionToken");
-    this.authService.setLoggedInStatus(false);
+    localStorage.removeItem("userId");
+
+    this.loggedIn = false;
     this.router.navigate(["/"]);
   }
 

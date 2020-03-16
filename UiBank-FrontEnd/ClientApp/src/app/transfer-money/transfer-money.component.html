@@ -1,5 +1,10 @@
 <div class="card shadow-sm">
   <div class="card-header uibank-gradient">
+    <a style="cursor: pointer" class="text-white" (click)="backButton()">
+      <strong>
+        <
+      </strong>
+    </a>
     <div class="sm-spacer"></div>
     <h3 class="text-white">
       Transfer Money
@@ -7,6 +12,8 @@
     <div class="sm-spacer"></div>
 
   </div>
+
+
   <div class="card-body">
 
     <div class="spacer"></div>
@@ -16,9 +23,8 @@
         <label for="fromAccount">From</label>
         <select class="form-control" id="fromAccount"
                 required
-                type="text"
-                ngModel name="fromAccount">
-          <option type="text" *ngFor="let fromAccount of currentAccounts" [value]="fromAccount">{{fromAccount.friendlyName}}: {{fromAccount.id}}</option>
+                [(ngModel)]="fromAccount" name="fromAccount">
+          <option type="text" *ngFor="let account of currentAccounts" [ngValue]="account">{{account.friendlyName}}: {{account.id}} - {{account.balance | currency:'USD':'symbol':'4.2-2'}}</option>
         </select>
       </div>
 
@@ -28,9 +34,8 @@
         <label for="toAccount">To</label>
         <select class="form-control" id="toAccount"
                 required
-                type="text"
-                ngModel name="toAccount">
-          <option type="text" *ngFor="let toAccount of currentAccounts" [value]="toAccount">{{toAccount.friendlyName}}: {{toAccount.id}}</option>
+                [(ngModel)]="toAccount" name="toAccount">
+          <option type="text" *ngFor="let account of currentAccounts" [ngValue]="account">{{account.friendlyName}}: {{account.id}} - {{account.balance | currency:'USD':'symbol':'4.2-2'}}</option>
         </select>
       </div>
 
@@ -42,7 +47,8 @@
                class="form-control"
                ngModel
                name="amount"
-               [(ngModel)]="this.amountTransferred"
+               id="amountTransferred"
+               [(ngModel)]="amountTransferred"
                placeholder="How much would you like to transfer?">
       </div>
       <div class="sm-spacer"></div>
@@ -61,18 +67,59 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="confirmTransferModal">Review Your Transfer</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
 
       <div class="modal-body">
-        ...
+
+        <div class="sm-spacer"></div>
+
+        <p class="text-blue">
+          <strong>
+            From {{fromAccount.friendlyName}} - {{fromAccount.id}} <br />
+          </strong>
+            <span class="text-gray" id="transferFromAccount">
+              Current Balance: {{fromAccount.balance | currency:'USD':'symbol':'.2-2'}}
+            </span>
+         
+        </p>
+
+        <div class="sm-spacer"></div>
+
+
+        <p class="text-blue">
+          <strong>
+            To {{toAccount.friendlyName}} - {{toAccount.id}} <br />
+          </strong>
+            <span class="text-gray" id="transferToAccount">
+              Current Balance: {{toAccount.balance | currency:'USD':'symbol':'.2-2'}}
+            </span>
+
+      
+        </p>
+
+        <div class="sm-spacer"></div>
+
+
+        <p class="text-blue">
+          <strong>
+            Total amount to transfer: <br />
+              <span id="transferAmount" style="color: black">
+                {{amountTransferred | currency:'USD':'symbol':'.2-2'}}
+              </span>
+
+          </strong>
+        </p>
+
+        <div class="sm-spacer"></div>
+
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button (click)="submitTransfer()" data-dismiss="modal"  type="button" class="btn btn-primary">Confirm Transfer</button>
       </div>
     </div>
   </div>

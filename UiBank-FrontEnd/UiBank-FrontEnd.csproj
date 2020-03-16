@@ -31,6 +31,8 @@
     <None Remove="ClientApp\src\app\shared\loan.ts" />
     <None Remove="ClientApp\src\app\shared\mock-account.ts" />
     <None Remove="ClientApp\src\app\shared\transaction.ts" />
+    <None Remove="ClientApp\src\app\shared\transfer-data.ts" />
+    <None Remove="ClientApp\src\app\shared\TransferObject.ts" />
     <None Remove="ClientApp\src\app\shared\user.ts" />
   </ItemGroup>
 
@@ -43,6 +45,8 @@
     <TypeScriptCompile Include="ClientApp\src\app\file-actions\csv-data.service.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\shared\account.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\shared\transaction.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\shared\transfer-data.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\shared\TransferObject.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\shared\user.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\shared\loan.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\shared\mock-account.ts" />

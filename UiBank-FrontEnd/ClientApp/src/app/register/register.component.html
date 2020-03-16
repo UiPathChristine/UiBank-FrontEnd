@@ -33,7 +33,7 @@
                 required
                 type="text"
                 ngModel name="title">
-          <option type="text" *ngFor="let title of titles" [value]="title">{{title}}</option>
+          <option type="text" *ngFor="let title of titles" [value]="title">{{title | titlecase}}</option>
         </select>
       </div>
       <div class="form-group">
@@ -57,12 +57,12 @@
                placeholder="Enter last name">
       </div>
       <div class="form-group">
-        <label for="number">Gender</label>
-        <select class="form-control" id="gender"
+        <label for="number">Sex</label>
+        <select class="form-control" id="sex"
                 required
                 type="text"
                 ngModel name="gender">
-          <option type="text" *ngFor="let gender of genderTypes" [value]="gender">{{gender}}</option>
+          <option type="text" *ngFor="let gender of sexTypes" [value]="gender">{{gender | titlecase}}</option>
         </select>
       </div>
       <!--<div class="form-group">
@@ -85,18 +85,18 @@
         </select>
       </div>
       <div class="form-group">
-        <label for="age">Age</label>
+        <label for="age">Age <span class="text-gray">(MM/DD/YY)</span></label>
         <input type="text"
                class="form-control"
                id="age"
                [(ngModel)]="this.newUser.age"
                name="age"
                aria-describedby="age"
-               placeholder="Enter age">
+               placeholder="Enter age in format (MM/DD/YY)">
       </div>
       <div class="form-group">
         <label for="number">Marital Status</label>
-        <select class="form-control" id="gender"
+        <select class="form-control" id="maritalStatus"
                 required
                 type="text"
                 ngModel name="maritalStatus">
@@ -109,7 +109,7 @@
                class="form-control"
                id="numberOfDependents"
                aria-describedby="numberOfDependents"
-               [(ngModel)]="this.newUser.numberOfDependents"
+               [(ngModel)]="this.newUser.numDependents"
                name="numberOfDependents"
                placeholder="How many dependents do you claim?">
       </div>
@@ -147,8 +147,8 @@
 
       <div class="sm-spacer"></div>
 
-      <button type="submit" class="btn btn-primary">Register</button>
-    </form>
+      <button type="submit" class="btn btn-blue-outline btn-xl">Register</button>
+    </form> 
 
     <div class="spacer"></div>
   </div>

@@ -1,0 +1,48 @@
+<div class="card shadow-sm">
+  <div class="card-header" style="float: left">
+    <a style="cursor: pointer" (click)="backButton()">
+      <strong>
+        <
+      </strong>
+    </a>
+  </div>
+  <div class="card-body form-box-smooshed">
+    <div class="spacer"></div>
+    <div class="sm-spacer"></div>
+
+
+      <h1 class="text-center">Congrats, you've been approved for a new account!</h1>
+
+      <div class="spacer"></div>
+
+      <h4 class="text-center">Your new account id is: <span id="accountId" class=" text-blue">{{accountId}}</span></h4>
+      <h4 class="text-center">Account Name: <span id="accountName" class="text-blue">{{friendlyName}}</span></h4>
+
+      <div class="spacer"></div>
+
+      <div class="text-center">
+        <div id="viewAccounts" class="text-center btn btn-xl btn-blue-outline" [routerLink]="['/accounts']"> View Your Accounts </div>
+      </div>
+     
+      <div class="spacer"></div>
+
+    <ng-template #notApproved class="text-center">
+      <h1 class="text-center text-orange">Sorry, at this time you were not approved for a new account.</h1>
+
+      <div class="spacer"></div>
+
+      <h4 class="text-center">
+        If you would like to learn more about why you weren't approved please reach out to our support team!'
+      </h4>
+
+      <div class="spacer"></div>
+    </ng-template>
+
+
+    <div class="spacer"></div>
+  </div>
+</div>
+
+
+
+<div class="spacer"></div>

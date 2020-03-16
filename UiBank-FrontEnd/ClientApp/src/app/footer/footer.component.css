@@ -2,12 +2,16 @@ footer {
   background-color: white;
   margin-bottom: 0;
   bottom: 0;
-
-
+  width: 100%;
+  min-height: 20vh;
 }
 
 
 .jumbotron {
   background-color: white;
   margin-bottom: 0;
+}
+
+.text-outline-box {
+  border: 2px solid black;
 }

@@ -8,7 +8,7 @@ export class User {
   public type: string;
   public employmentStatus: string;
   public maritalStatus: string;
-  public numberOfDependents: string;
+  public numDependents: string;
   public residenceStatus: string;
   public locked: boolean;
   public realm?: string;

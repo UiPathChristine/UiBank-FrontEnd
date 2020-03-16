@@ -1,0 +1,75 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card shadow-sm ">
+      <div class="card-header uibank-gradient" style="float: left">
+        <div class="sm-spacer"></div>
+
+        <div style="overflow: hidden; margin-top: auto; margin-bottom: auto; ">
+          <div class="container">
+            <div style="float: left; margin-top: auto; margin-bottom: auto; " class="d-inline text-left">
+              <h3 class="text-white">
+                Manage Disputes
+              </h3>
+
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+
+      <div class="card-body">
+
+        <div class="sm-spacer"></div>
+
+        <h2>
+          We are here to help!
+        </h2>
+
+        <p>
+          File a new dispute or check the status of existing disputes.
+        </p>
+
+        <p>
+          To get started on a new dispute, please select your account linked to the issue and help us by providing some details and we can open a claim for your transaction.
+        </p>
+
+
+        <div class="sm-spacer"></div>
+
+        <hr />
+
+        <div class="sm-spacer"></div>
+
+        <h2>
+          Check the status of all your disputes
+        </h2>
+
+        <div class="sm-spacer"></div>
+
+        <p>
+          Please select which account you would like to check:
+        </p>
+
+        <div class="form-group">
+          <select id="accountSelection" class="form-control" [(ngModel)]="selectedAccount">
+            <option *ngFor="let account of accounts" [ngValue]="account">{{account.friendlyName}} - {{account.id}}</option>
+          </select>
+        </div>
+
+        <div class="sm-spacer"></div>
+
+        
+
+        <button type="submit" [routerLink]="['/dispute-transaction/view-details/', selectedAccount.id]" class="btn btn-blue btn-xl">Next</button>
+
+        <div class="sm-spacer"></div>
+
+      </div>
+
+      </div>
+  </div>
+</div>
+
+<div class="spacer"></div>

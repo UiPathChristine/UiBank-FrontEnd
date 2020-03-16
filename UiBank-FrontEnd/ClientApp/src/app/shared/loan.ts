@@ -6,4 +6,5 @@ export class Loan {
   public accepted?: boolean;
   public rate?: number;
   public quoteID?: string;
+  public email?: string;
 }

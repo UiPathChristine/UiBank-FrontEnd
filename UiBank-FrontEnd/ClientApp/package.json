@@ -32,6 +32,7 @@
     "html2canvas": "^1.0.0-rc.5",
     "jquery": "3.4.1",
     "jspdf": "^1.5.3",
+    "ngb-modal": "^2.0.3",
     "oidc-client": "^1.9.1",
     "pdfmake": "^0.1.64",
     "pdfmake-unicode": "0.0.1",

@@ -23,6 +23,9 @@ export class RegisterSuccessComponent implements OnInit {
       }, err => { console.log(err); })
     }
 
+  backButton() {
+    this._location.back();
+  }
   }
 
 

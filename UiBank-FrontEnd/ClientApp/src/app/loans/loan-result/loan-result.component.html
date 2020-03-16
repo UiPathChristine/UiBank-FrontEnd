@@ -12,7 +12,7 @@
 
 
     <div *ngIf="this.rate != 0; else notApproved" class="text-center">
-      <h1 class="text-center">Congrats!!! You've been approved!</h1>
+      <h1 class="text-center">Congrats! <br/>You've been approved for a loan with UiBank!</h1>
 
       <div class="spacer"></div>
 
@@ -20,7 +20,7 @@
         With a fantastic rate of:
       </h5>
 
-      <h4  class="text-blue" id="rate">
+      <h4 class="text-blue" id="rate">
         <span id="rateValue">{{rate}}</span>% APR
       </h4>
 
@@ -34,18 +34,36 @@
         {{loanID}}
       </h4>
 
+      <div class="spacer"></div>
+
+      <div  id="applyForNewLoanButton" title="applyForNewLoanButton" class="btn btn-xl btn-blue-outline" [routerLink]="['/loans/apply']" > Apply For Another Loan</div>
+
 
       <div class="spacer"></div>
     </div>
     <ng-template #notApproved class="text-center">
-      <h1 class="text-center text-orange">Sorry, at this time you have not been approved for a loan.</h1>
+      <div id="notApproved" title="notApproved">
+        <h1 class="text-center text-orange">Sorry, at this time you have not been approved for a loan.</h1>
+
+      </div>
 
       <div class="spacer"></div>
 
-      <h4 class="text-center">
-        You must be at least 18 years old for a loan and the loan must not exceed 100k.
-      </h4>
+      <div id="failMessage">
+        <h4 class="text-center">
+          You must be at least 18 years old for a loan and the loan must not exceed 100k.
+        </h4>
+      </div>
 
+
+      <div class="spacer"></div>
+
+      <div class="text-center">
+        <div id="applyForNewLoanButton" title="applyForNewLoanButton" class="text-center btn btn-xl btn-blue-outline" [routerLink]="['/loans/apply']"> Apply For Another Loan</div>
+
+
+      </div>
+     
       <div class="spacer"></div>
     </ng-template>
 

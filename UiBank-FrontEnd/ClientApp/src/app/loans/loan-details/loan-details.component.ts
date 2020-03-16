@@ -26,6 +26,7 @@ export class LoanDetailsComponent implements OnInit {
   public validID: string = "";
   public giant: boolean = true;
   public isValid: boolean;
+  public email: string;
 
   constructor(private _location: Location, private route: ActivatedRoute, private loanService: LoanService) { }
 
@@ -39,6 +40,7 @@ export class LoanDetailsComponent implements OnInit {
       this.rate = params['rate'];
       this.age = params['age'];
       this.income = params['income'];
+      this.email = params['email'];
     })
 
     if (this.validID == "true") {

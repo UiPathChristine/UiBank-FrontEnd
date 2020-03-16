@@ -1,23 +1,38 @@
-<div class="jumbotron jumbotron-fluid shadow-sm bg-white">
-  <div class="container">
-    <div class="row">
+
+
+<div class="card shadow-sm">
+
+  <div class="card-body form-box-smooshed">
+    <div class="spacer"></div>
+    <div class="sm-spacer"></div>
+
+
+    <div *ngIf="username; else notApproved" class="text-center">
       <div class="col-12 text-center">
         <div class="sm-spacer"></div>
 
-        <img height="120px" src="../../../../assets/images/icons/like.png" />
+        <img height="120px" src="../../../../assets/images/icons/customer-loyalty.png" />
 
         <div class="sm-spacer"></div>
 
         <h2>
-          Congrats!!!
+          Welcome To The UiBank Family!
         </h2>
 
         <div class="sm-spacer"></div>
 
-        <p>
-          You have successfully registered an account with UiBank!<br/>
-          Your username is: {{username}}
-        </p>
+        <h5>
+          You have successfully registered an profile with UiBank!
+        </h5>
+
+        <div class="sm-spacer"></div>
+
+        <p class="text-blue">Now that you are registered, let's apply for an account!</p>
+        <div class="sm-spacer"></div>
+
+        <div class="btn btn-xl btn-blue-outline" [routerLink]="['/account-apply']">
+          Apply For An Account
+        </div>
 
         <div class="spacer"></div>
 
@@ -25,6 +40,23 @@
         <div class="sm-spacer"></div>
       </div>
     </div>
+    <ng-template #notApproved class="text-center">
+      <h1 class="text-center text-orange">Sorry, at this time you have not been approved for a loan.</h1>
+
+      <div class="spacer"></div>
+
+      <h4 class="text-center">
+        You must be at least 18 years old for a loan and the loan must not exceed 100k.
+      </h4>
+
+      <div class="spacer"></div>
+    </ng-template>
+
+
+    <div class="spacer"></div>
   </div>
 </div>
 
+
+
+<div class="spacer"></div>

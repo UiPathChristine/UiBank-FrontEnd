@@ -10,11 +10,21 @@
     <div class="spacer"></div>
 
     <h1 class="text-center">Loan Application</h1>
-    <p class="text-center">Hi! Enter your personal details below to get started!</p>
+    <p class="text-center">Hi! Enter some details below to get started!</p>
 
     <div class="sm-spacer"></div>
 
     <form class="form-box" #loanForm="ngForm" (ngSubmit)="submitApplication(loanForm)">
+      <div class="form-group">
+        <label for="loanEmail">Email Address of Requester</label>
+        <input type="email"
+               class="form-control"
+               id="email"
+               ngModel
+               name="email"
+               aria-describedby="email"
+               placeholder="Enter email address">
+      </div>
       <div class="form-group">
         <label for="loanAmount">Loan Amount Requested</label>
         <input type="number"
