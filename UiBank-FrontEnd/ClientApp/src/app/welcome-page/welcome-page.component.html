@@ -56,14 +56,14 @@
 
 
                 <div *ngIf="this.failedLogin" style="color: red">
-                  Invalid login credentials, please try again!
+                  {{httpError.error.error.message}}
                 </div>
 
                 <div class="sm-spacer"></div>
 
                 <button type="submit" class="btn btn-block btn-blue btn-xl">Sign In</button>
 
-                <a [routerLink]="['/password-reset']">
+                <a [routerLink]="['/password-request']">
                   <small id="emailHelp" class="form-text text-muted">Forgot Your Password?</small>
                 </a>
 

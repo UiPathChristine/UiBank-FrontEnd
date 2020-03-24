@@ -46,6 +46,10 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { DisputeDetailsComponent } from './dispute-details/dispute-details.component';
 import { HelpReceivedComponent } from './help-received/help-received.component';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
+import { ConfirmationComponent } from './password-reset/confirmation/confirmation.component';
+import { PasswordResetConfirmationComponent } from './password-reset-confirmation/password-reset-confirmation.component';
+import { PasswordRequestComponent } from './password-request/password-request.component';
+import { PasswordRequestConfirmationComponent } from './password-request-confirmation/password-request-confirmation.component';
 
 export function tokenGetter() {
   return localStorage.getItem("jwt");
@@ -87,7 +91,11 @@ export function tokenGetter() {
     EditProfileComponent,
     DisputeDetailsComponent,
     HelpReceivedComponent,
-    PasswordResetComponent
+    PasswordResetComponent,
+    ConfirmationComponent,
+    PasswordResetConfirmationComponent,
+    PasswordRequestComponent,
+    PasswordRequestConfirmationComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -127,7 +135,10 @@ export function tokenGetter() {
       { path: 'transfer-money', component: TransferMoneyComponent },
       { path: 'transfer-result', component: TransferResultComponent },
       { path: 'help/confirmation', component: HelpReceivedComponent },
-      { path: 'password-reset', component: PasswordResetComponent }
+      { path: 'reset-password',  component: PasswordResetComponent },
+      { path: 'reset-password/confirmation/:valid', component: PasswordResetConfirmationComponent },
+      { path: 'password-request/confirmation/:valid', component: PasswordRequestConfirmationComponent },
+      { path: 'password-request', component: PasswordRequestComponent }
     ]),
     JwtModule.forRoot({
       config: {

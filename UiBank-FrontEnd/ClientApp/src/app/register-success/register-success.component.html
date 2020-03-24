@@ -22,17 +22,17 @@
         <div class="sm-spacer"></div>
 
         <h5>
-          You have successfully registered an profile with UiBank!
+          Before you can apply for an account we need you to verify your email!
         </h5>
 
         <div class="sm-spacer"></div>
 
-        <p class="text-blue">Now that you are registered, let's apply for an account!</p>
+        <p class="text-blue">Check your inbox for a verification link.</p>
         <div class="sm-spacer"></div>
 
-        <div class="btn btn-xl btn-blue-outline" [routerLink]="['/account-apply']">
+        <!--<div class="btn btn-xl btn-blue-outline" [routerLink]="['/account-apply']">
           Apply For An Account
-        </div>
+        </div>-->
 
         <div class="spacer"></div>
 
@@ -41,13 +41,8 @@
       </div>
     </div>
     <ng-template #notApproved class="text-center">
-      <h1 class="text-center text-orange">Sorry, at this time you have not been approved for a loan.</h1>
+      <h1 class="text-center text-orange">Sorry, at this time you are not able to create an account.</h1>
 
-      <div class="spacer"></div>
-
-      <h4 class="text-center">
-        You must be at least 18 years old for a loan and the loan must not exceed 100k.
-      </h4>
 
       <div class="spacer"></div>
     </ng-template>

@@ -1,5 +1,5 @@
 <div class="card shadow-sm">
-  <div class="card-header" style="float: left">
+  <div class="card-header uibank-gradient text-white" style="float: left">
     <
   </div>
   <div class="card-body">
@@ -10,24 +10,36 @@
 
     <div class="sm-spacer"></div>
 
-    <form class="form-box">
+    <form class="form-box form-box-smooshed" #loginForm="ngForm" (ngSubmit)="loginUser(loginForm)">
       <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        <label for="username">Username</label>
+        <input type="text"
+               class="form-control"
+               id="username"
+               [(ngModel)]="this.userLoginInfo.username"
+               name="username"
+               aria-describedby="username"
+               placeholder="Enter username">
+        <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
       </div>
       <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        <label for="password">Password</label>
+        <input type="password"
+               class="form-control"
+               id="password"
+               [(ngModel)]="this.userLoginInfo.password"
+               name="password"
+               placeholder="Enter password">
       </div>
-      <div class="form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+
+      <div *ngIf="this.failedLogin" style="color: red">
+        {{httpError.error.error.message}}
       </div>
 
       <div class="sm-spacer"></div>
 
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-blue-outline btn-xl">Sign In</button>
+
     </form>
 
     <div class="spacer"></div>

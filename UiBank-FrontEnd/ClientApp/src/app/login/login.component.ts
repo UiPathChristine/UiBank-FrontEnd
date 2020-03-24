@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { LoginService } from '../login/login.service';
+import { Router } from '@angular/router';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { AuthenticationService } from '../auth/authentication.service';
+
 
 @Component({
   selector: 'app-login',
@@ -6,10 +13,50 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  public userLoginInfo = {
+    username: "",
+    password: ""
+  }
+  public failedLogin: boolean = false;
+  public httpError: HttpErrorResponse;
+  public errorMessage: string;
+  public response: any;
 
-  constructor() { }
+
+  constructor(public authService: AuthenticationService, private jwtHelper: JwtHelperService, private http: HttpClient, private loginService: LoginService, private route: Router) { }
 
   ngOnInit() {
+  }
+
+  loginUser(form: NgForm): any {
+    console.log(form.value);
+    console.log("Logging in user" + form.value);
+    this.userLoginInfo = form.value;
+
+    this.loginService.login(this.userLoginInfo)
+      .subscribe(
+        res => {
+          console.log('HTTP response', res);
+          console.log('successful login');
+          console.log('returned token', res.id);
+          localStorage.setItem("sessionToken", res.id);
+          localStorage.setItem("userId", res.userId);
+
+          //this.authService.setLoggedInStatus(true);
+          this.route.navigate(['accounts']);
+        },
+        err => {
+          this.httpError = err;
+          this.httpError.error.error.message;
+          console.log('HTTP Error', err);
+          console.log('failed login');
+          if (this.httpError.status === 403) {
+            console.log("accoutn locked");
+          }
+          this.failedLogin = true;
+        },
+        () => console.log('HTTP request completed.'));
+
   }
 
   //login(form: NgForm) {

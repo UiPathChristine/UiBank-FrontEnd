@@ -18,7 +18,7 @@ export class WelcomePageComponent implements OnInit {
   }
   public failedLogin: boolean = false;
   public httpError: HttpErrorResponse;
-
+  public errorMessage: string;
   public response: any;
 
 
@@ -57,6 +57,7 @@ export class WelcomePageComponent implements OnInit {
       },
         err => {
           this.httpError = err;
+          this.httpError.error.error.message;
           console.log('HTTP Error', err);
           console.log('failed login');
           if (this.httpError.status === 403) {
